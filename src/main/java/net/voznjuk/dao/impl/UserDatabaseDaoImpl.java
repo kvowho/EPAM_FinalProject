@@ -26,6 +26,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	protected Connection getConnection() {
 		Connection connection = null;
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(jdbcURL, jdbcUser, jdbcPassword);
 			
 		} catch(Exception e) {

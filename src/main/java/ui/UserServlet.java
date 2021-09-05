@@ -11,9 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import net.voznjuk.dao.UserDao;
-import net.voznjuk.dao.impl.UserDatabaseDaoImpl;
+import net.voznjuk.dao.impl.*;
 import net.voznjuk.models.User;
 
 /**
@@ -23,7 +22,7 @@ import net.voznjuk.models.User;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private UserDatabaseDaoImpl userDAO;
+	private UserDao userDAO = null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,7 +36,7 @@ public class UserServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		userDAO = new UserDatabaseDaoImpl();
+		UserDao userDAO = new UserDatabaseDaoImpl();
 	}
 
 	/**
@@ -79,12 +78,12 @@ public class UserServlet extends HttpServlet {
 		List<User> users = new ArrayList<>();
 		users = userDAO.getAll();
 		request.setAttribute("usersList", users);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/users-list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void showNewUserForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/user-form.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
 		dispatcher.forward(request, response);
 	}
 
