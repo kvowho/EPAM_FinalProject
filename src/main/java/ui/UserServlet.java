@@ -22,7 +22,7 @@ import net.voznjuk.models.User;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private UserDao userDAO = null;
+	private UserDao userDAO = new UserDatabaseDaoImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,7 +36,7 @@ public class UserServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		UserDao userDAO = new UserDatabaseDaoImpl();
+		userDAO = new UserDatabaseDaoImpl();
 	}
 
 	/**

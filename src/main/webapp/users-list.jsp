@@ -27,7 +27,7 @@
 						<tr>
 							<td><c:out value="${user.id}" /></td>
 							<td><c:out value="${user.firstname}" /></td>
-							<td><c:out value="${user.lastname}}" /></td>
+							<td><c:out value="${user.lastname}" /></td>
 							<td><c:out value="${user.login}" /></td>
 							<td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a

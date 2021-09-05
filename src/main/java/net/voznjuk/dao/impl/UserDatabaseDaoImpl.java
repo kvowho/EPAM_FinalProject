@@ -54,10 +54,9 @@ public class UserDatabaseDaoImpl implements UserDao{
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				users.add(new User(rs.getLong("id"), rs.getString("f_name"), rs.getString("s_name"), rs.getString("login"), rs.getString("password"), rs.getString("credentials_id")) );
-				
-			}
-			
+				//System.out.println(rs.getString(3));
+				users.add(new User(rs.getLong("id"), rs.getString("f_name"), rs.getString("s_name"), rs.getString("login"), rs.getString("password"), rs.getString("credentials_id")) );				
+			}			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}		
