@@ -26,9 +26,9 @@
 
 						<tr>
 							<td><c:out value="${user.id}" /></td>
-							<td><c:out value="${user.name}" /></td>
-							<td><c:out value="${user.email}" /></td>
-							<td><c:out value="${user.country}" /></td>
+							<td><c:out value="${user.f_name}" /></td>
+							<td><c:out value="${user.s_name}}" /></td>
+							<td><c:out value="${user.login}" /></td>
 							<td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="delete?id=<c:out value='${user.id}' />">Delete</a></td>

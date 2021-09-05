@@ -79,12 +79,12 @@ public class UserServlet extends HttpServlet {
 		List<User> users = new ArrayList<>();
 		users = userDAO.getAll();
 		request.setAttribute("usersList", users);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/users-list.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void showNewUserForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/user-form.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -59,9 +59,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-		}
-		
-		
+		}		
 		return users;
 	}
 
