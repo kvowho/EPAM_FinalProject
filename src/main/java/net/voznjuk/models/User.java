@@ -21,6 +21,15 @@ public class User extends UnifiedModel{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public User(Long id, String firstname, String lastname, String login, String password, String role) {
+		super(id);
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.login = login;
+		this.password = password;
+		this.role = role;
+	}
 
 	public String getFirstname() {
 		return firstname;
