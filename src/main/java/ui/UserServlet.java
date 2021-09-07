@@ -17,8 +17,11 @@ import net.voznjuk.models.User;
 
 /**
  * Servlet implementation class UserServlet
+ * 
+ * @WebServlet(description = "Servlet to serve all JSP related to user(employee) management", urlPatterns = { "/UserServlet" })
  */
-@WebServlet(description = "Servlet to serve all JSP related to user(employee) management", urlPatterns = { "/UserServlet" })
+
+@WebServlet("/")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

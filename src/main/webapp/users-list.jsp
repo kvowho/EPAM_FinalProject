@@ -9,6 +9,17 @@
 </head>
 <body>
 
+<h3 class="text-center">List of Users</h3>
+			<hr>
+			<div class="container text-left">
+
+				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">Add
+					New User</a>
+			</div>
+			<br>
+
+
+
 <br>
 			<table class="table table-bordered">
 				<thead>

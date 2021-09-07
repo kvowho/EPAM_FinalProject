@@ -4,12 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome</title>
 </head>
 <body>
 
-<jsp:forward page="login.jsp"></jsp:forward>
+Welcome 
 
+<hr/>
+${user}, hello!
+<hr/>
+<a href="controller?command=logout">Logout</a>
 
 </body>
 </html>
