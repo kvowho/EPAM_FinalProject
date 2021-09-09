@@ -8,6 +8,8 @@ public class test_res {
 		// TODO Auto-generated method stub
 		ResourceBundle bundleDefault = ResourceBundle.getBundle("resources");
 		System.out.println(bundleDefault.getString("somemess"));
+		String page = ConfigurationManager.getProperty("path.page.main");
+		System.out.println(page);
 
 	}
 
