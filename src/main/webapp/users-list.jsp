@@ -11,6 +11,8 @@
 
 <h3 class="text-center">List of Users</h3>
 			<hr>
+			<a href="Controller?command=logout">Logout</a>
+			
 			<div class="container text-left">
 
 				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">Add

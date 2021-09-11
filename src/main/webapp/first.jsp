@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	Welcome
+	Welcome to page FIRST
 
 	<hr />
 	${user}, hello!
