@@ -16,12 +16,11 @@
 		<nav class="navbar navbar-expand-md navbar-dark"
 			style="background-color: tomato">
 			<div>
-				<a href="https://www.javaguides.net" class="navbar-brand"> User Management App </a>
+				<a href="https://www.javaguides.net" class="navbar-brand"> Product Management Page </a>
 			</div>
 
 			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/list"
-					class="nav-link">Users</a></li>
+				<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Products</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -29,56 +28,56 @@
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
-				<c:if test="${user.id != null}">
-					<form action="<%=request.getContextPath()%>/Controller?command=user&ex=upd" method="post">
+				<c:if test="${product.id != null}">
+					<form action="<%=request.getContextPath()%>/Controller?command=product&ex=upd" method="post">
 				</c:if>
-				<c:if test="${user.id == null}">
-					<form action="<%=request.getContextPath()%>/Controller?command=user" method="post">
+				<c:if test="${product.id == null}">
+					<form action="<%=request.getContextPath()%>/Controller?command=product" method="post">
 				</c:if>
 
 				<caption>
 					<h2>
-						<c:if test="${user.id != null}">
+						<c:if test="${product.id != null}">
             			Edit User
             		</c:if>
-						<c:if test="${user.id == null}">
+						<c:if test="${product.id == null}">
             			Add New User
             		</c:if>
 					</h2>
 				</caption>
 
-				<c:if test="${user.id != null}">
-					<input type="hidden" name="id" value="<c:out value='${user.id}' />" />
+				<c:if test="${product.id != null}">
+					<input type="hidden" name="id" value="<c:out value='${product.id}' />" />
 				</c:if>
-				<c:if test="${user.id == null}">
+				<c:if test="${product.id == null}">
 					<input type="hidden" name="id" value="0" />
 				</c:if>
 
 				<fieldset class="form-group">
-					<label>First name</label> <input type="text" value="<c:out value='${user.firstname}' />" class="form-control"
-						name="firstname" required="required">
+					<label>Product name</label> <input type="text" value="<c:out value='${product.name}' />" class="form-control"
+						name="name" required="required">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Second name</label> <input type="text"
-						value="<c:out value='${user.lastname}' />" class="form-control"
-						name="lastname">
+					<label>Product description</label> <input type="text"
+						value="<c:out value='${product.description}' />" class="form-control"
+						name="description">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Login</label> <input type="text"
-						value="<c:out value='${user.login}' />" class="form-control"
-						name="login">
+					<label>Quantity</label> <input type="text"
+						value="<c:out value='${product.stockQuantity}' />" class="form-control"
+						name="quantity">
 				</fieldset>
 				<fieldset class="form-group">
-					<label>Password</label> <input type="text"
-						value="<c:out value='${user.password}' />" class="form-control"
-						name="password">
+					<label>Price</label> <input type="text"
+						value="<c:out value='${product.price}' />" class="form-control"
+						name="price">
 				</fieldset>
 				<fieldset class="form-group">
-					<label>Role</label> <input type="text"
-						value="<c:out value='${user.role}' />" class="form-control"
-						name="role">
+					<label>Status</label> <input type="text"
+						value="<c:out value='${product.availabilityStatus}' />" class="form-control"
+						name="status">
 				</fieldset>
 
 				<button type="submit" class="btn btn-success">Save</button>

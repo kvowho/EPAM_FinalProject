@@ -1,9 +1,10 @@
 package net.voznjuk.ui;
 
 import javax.servlet.http.HttpServletRequest;
-import net.voznjuk.dao.UserDao;
-import net.voznjuk.dao.impl.UserDatabaseDaoImpl;
-import net.voznjuk.models.User;
+
+import net.voznjuk.dao.ProductDao;
+import net.voznjuk.dao.impl.ProductDatabaseDaoImpl;
+import net.voznjuk.models.Product;
 
 public class ProductCommand implements ActionCommand {
 
@@ -11,55 +12,55 @@ public class ProductCommand implements ActionCommand {
 	public String execute(HttpServletRequest request) {
 		
 		String page = null;
-		UserDao userDAO = new UserDatabaseDaoImpl();
-		
+		ProductDao productDAO = new ProductDatabaseDaoImpl();
 		String id = request.getParameter("id");
 		
 		if ( id != null && !id.equals("") && !id.equals("0")) {
 			
 			if (request.getParameter("ex").equals("del")) {
 				// Request to delete user has been received
-				userDAO.delById(Long.parseLong(id));
-				page = "/Controller?command=users";
+				productDAO.delById(Long.parseLong(id));
+				page = "/Controller?command=products";
 			}
 			
 			if (request.getParameter("ex").equals("upd")) {
 				// Request to change user has been received 
-				User user = new User();
-				user.setId(Long.parseLong(request.getParameter("id")));
-				user.setFirstname(request.getParameter("firstname"));
-				user.setLastname(request.getParameter("lastname"));
-				user.setLogin(request.getParameter("login"));
-				user.setPassword(request.getParameter("password"));
-				user.setRole(request.getParameter("role"));
-				userDAO.update(user);
-				page = "/Controller?command=users";
+				Product product = new Product();
+				product.setId(Long.parseLong(request.getParameter("id")));
+				product.setName(request.getParameter("name"));
+				product.setDescription(request.getParameter("description"));
+				product.setStockQuantity(Long.parseLong(request.getParameter("quantity")));
+				product.setPrice(Float.parseFloat(request.getParameter("price")));
+				product.setAvailabilityStatus(Integer.parseInt(request.getParameter("status")));
+				productDAO.update(product);
+				page = "/Controller?command=products";
 			}
 
 			if (request.getParameter("ex").equals("disp")) {
 				//Request to show user information
 				System.out.println("ID not empty" + Long.parseLong(id));
-				User user = userDAO.getById(Long.parseLong(id));
-				request.setAttribute("user", user);
-				page = "/user-form.jsp";
+				Product product = productDAO.getById(Long.parseLong(id));
+				request.setAttribute("product", product);
+				page = "/product-form.jsp";
 			}
 
 		} else {
-			System.out.println("New user form");
-			page = "/user-form.jsp";
+			System.out.println("New product form");
+			page = "/product-form.jsp";
 		}
 		
 		
 		if (id != null && id.equals("0")) {
 			//System.out.println("New user form has been received");
-			User user = new User();
-			user.setFirstname(request.getParameter("firstname"));
-			user.setLastname(request.getParameter("lastname"));
-			user.setLogin(request.getParameter("login"));
-			user.setPassword(request.getParameter("password"));
-			user.setRole(request.getParameter("role"));
-			userDAO.add(user);
-			page = "/Controller?command=users";
+			Product product = new Product();
+			product.setName(request.getParameter("name"));
+			product.setDescription(request.getParameter("description"));
+			product.setStockQuantity(Long.parseLong(request.getParameter("quantity")));
+			product.setPrice(Float.parseFloat(request.getParameter("price")));
+			product.setAvailabilityStatus(Integer.parseInt(request.getParameter("status")));
+			productDAO.add(product);
+			page = "/Controller?command=products";
+			
 			//System.out.println(user.toString());
 		}
 		

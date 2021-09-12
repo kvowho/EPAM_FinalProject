@@ -6,6 +6,6 @@ public interface ProductDao extends UnifiedDao<Product> {
 	
 	public Product getByName(String login);
 	
-	public boolean delById(Long id);
+	public int delById(Long id);
 
 }

@@ -28,19 +28,25 @@ public class LoginCommand implements ActionCommand {
 //		}
 		UserDao userDAO = new UserDatabaseDaoImpl();
 		User user = userDAO.getByLogin(login);
-		System.out.println(user.getRole());
+		//System.out.println(user.getRole());
 		
 		
 		
 		if (user.getRole().equals("1")) {
-			System.out.println("***** User name is Ivan ********");
+			//System.out.println("***** User name is Ivan ********");
 			request.setAttribute("user", login);
 			request.setAttribute("u_name", user.getLastname());
 			request.setAttribute("role", user.getRole());
 			page = "/Controller?command=users";
-		} else {
-			page = "/second.jsp";
-		}
+		} 
+		if (user.getRole().equals("2")) {
+			//System.out.println("***** User name is Ivan ********");
+			request.setAttribute("user", login);
+			request.setAttribute("u_name", user.getLastname());
+			request.setAttribute("role", user.getRole());
+			page = "/Controller?command=products";
+		} 
+		
 		
 		return page;
 	}

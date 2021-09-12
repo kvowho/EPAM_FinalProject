@@ -9,14 +9,14 @@
 </head>
 <body>
 
-<h3 class="text-center">List of Users</h3>
+<h3 class="text-center">Product List</h3>
 			<hr>
 			<a href="Controller?command=logout">Logout</a>
 			
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/Controller?command=user" class="btn btn-success">Add
-					New User</a>
+				<a href="<%=request.getContextPath()%>/Controller?command=product" class="btn btn-success">Add
+					New Product</a>
 			</div>
 			
 			User name ${u_name}, role ${role}
@@ -30,24 +30,27 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>First Name</th>
-						<th>Second Name</th>
-						<th>Login</th>
-						<th>Role</th>
+						<th>Product Name</th>
+						<th>Description</th>
+						<th>Quantity Available</th>
+						<th>Price</th>
+						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="user" items="${usersList}">
+					<c:forEach var="prod" items="${productList}">
 
 						<tr>
-							<td><c:out value="${user.id}" /></td>
-							<td><c:out value="${user.firstname}" /></td>
-							<td><c:out value="${user.lastname}" /></td>
-							<td><c:out value="${user.login}" /></td>
-							<td><a href="<%=request.getContextPath()%>/Controller?command=user&ex=disp&id=<c:out value='${user.id}' />">Edit</a>
+							<td><c:out value="${prod.id}" /></td>
+							<td><c:out value="${prod.name}" /></td>
+							<td><c:out value="${prod.description}" /></td>
+							<td><c:out value="${prod.stockQuantity}" /></td>
+							<td><c:out value="${prod.price}" /></td>
+							<td><c:out value="${prod.availabilityStatus}" /></td>
+							<td><a href="<%=request.getContextPath()%>/Controller?command=product&ex=disp&id=<c:out value='${prod.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="<%=request.getContextPath()%>/Controller?command=user&ex=del&id=<c:out value='${user.id}' />">Delete</a></td>
+								href="<%=request.getContextPath()%>/Controller?command=product&ex=del&id=<c:out value='${prod.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->

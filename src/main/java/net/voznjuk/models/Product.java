@@ -30,7 +30,7 @@ public class Product extends UnifiedModel{
 	}
 
 	public Product(Long id, String name, String description, long stockQuantity, float price, int availabilityStatus) {
-		super();
+		super(id);
 		this.name = name;
 		this.description = description;
 		this.stockQuantity = stockQuantity;
