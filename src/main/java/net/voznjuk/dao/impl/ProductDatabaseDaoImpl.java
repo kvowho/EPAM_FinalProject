@@ -153,7 +153,6 @@ public class ProductDatabaseDaoImpl implements ProductDao {
 				e.printStackTrace();
 			}			
 		}
-
 	}
 
 	@Override
