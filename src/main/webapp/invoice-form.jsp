@@ -30,10 +30,10 @@
 		<div class="card">
 			<div class="card-body">
 				<c:if test="${user.id != null}">
-					<form action="<%=request.getContextPath()%>/Controller?command=user&ex=upd" method="post">
+					<form action="update" method="post">
 				</c:if>
 				<c:if test="${user.id == null}">
-					<form action="<%=request.getContextPath()%>/Controller?command=user" method="post">
+					<form action="insert" method="post">
 				</c:if>
 
 				<caption>
@@ -56,29 +56,29 @@
 
 				<fieldset class="form-group">
 					<label>First name</label> <input type="text" value="<c:out value='${user.firstname}' />" class="form-control"
-						name="firstname" required="required">
+						name="name" required="required">
 				</fieldset>
 
 				<fieldset class="form-group">
 					<label>Second name</label> <input type="text"
 						value="<c:out value='${user.lastname}' />" class="form-control"
-						name="lastname">
+						name="email">
 				</fieldset>
 
 				<fieldset class="form-group">
 					<label>Login</label> <input type="text"
 						value="<c:out value='${user.login}' />" class="form-control"
-						name="login">
+						name="country">
 				</fieldset>
 				<fieldset class="form-group">
 					<label>Password</label> <input type="text"
 						value="<c:out value='${user.password}' />" class="form-control"
-						name="password">
+						name="country">
 				</fieldset>
 				<fieldset class="form-group">
 					<label>Role</label> <input type="text"
 						value="<c:out value='${user.role}' />" class="form-control"
-						name="role">
+						name="country">
 				</fieldset>
 
 				<button type="submit" class="btn btn-success">Save</button>

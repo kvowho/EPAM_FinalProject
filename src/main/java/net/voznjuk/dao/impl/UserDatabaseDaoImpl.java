@@ -18,12 +18,12 @@ public class UserDatabaseDaoImpl implements UserDao{
 	private String jdbcUser = "webuser";
 	private String jdbcPassword = "Voz!1972";
 	
-	private static final String INSERT_USER = "INSERT INTO employee (f_name, s_name, login, password, credentials_id) VALUES ( '?', '?', '?', '?', ?);";
+	private static final String INSERT_USER = "INSERT INTO employee (f_name, s_name, login, password, credentials_id) VALUES ( ?, ?, ?, ?, ?);";
 	private static final String SELECT_USER_BY_ID = "SELECT * FROM employee WHERE id = ?;";
 	private static final String SELECT_USER_BY_LOGIN = "SELECT * FROM employee WHERE login = ?;";
 	private static final String SELECT_ALL_USERS = "SELECT * FROM employee;";
-	private static final String UPDATE_USER_BY_ID = "UPDATE employee SET f_name = '?', s_name = '?', login = '?', password = '?', credentials_id = '?' WHERE id = '?';";
-	private static final String DELETE_USER_BY_ID = "DELETE FROM employee WHERE id = '?';";
+	private static final String UPDATE_USER_BY_ID = "UPDATE employee SET f_name = ?, s_name = ?, login = ?, password = ?, credentials_id = ? WHERE id = ?;";
+	private static final String DELETE_USER_BY_ID = "DELETE FROM employee WHERE id = ?;";
 	
 	protected Connection getConnection() {
 		Connection connection = null;
@@ -43,11 +43,40 @@ public class UserDatabaseDaoImpl implements UserDao{
 
 	@Override
 	public User getById(Long id) {
-		// TODO Auto-generated method stub
 		User user = new User();
-	
+		System.out.println(" **** getById mothod ****");
 		
-		return null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);
+			preparedStatement.setLong(1, id);
+			System.out.println(preparedStatement.toString());
+			rs = preparedStatement.executeQuery();
+			if(rs.next()){
+				user = new User(rs.getLong("id"), rs.getString("f_name"), rs.getString("s_name"), rs.getString("login"), rs.getString("password"), rs.getString("credentials_id"));
+			}
+			
+//			System.out.println(user.toString());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}	
+		return user;
 	}
 
 	@Override
@@ -86,8 +115,36 @@ public class UserDatabaseDaoImpl implements UserDao{
 
 	@Override
 	public void update(User model) {
-		// TODO Auto-generated method stub
 		
+		System.out.println(" **** updById mothod ****");
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int rs = 0;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(UPDATE_USER_BY_ID);
+			preparedStatement.setString(1, model.getFirstname());
+			preparedStatement.setString(2, model.getLastname());
+			preparedStatement.setString(3, model.getLogin());
+			preparedStatement.setString(4, model.getPassword());
+			preparedStatement.setString(5, model.getRole());
+			preparedStatement.setLong(6, model.getId());
+			rs = preparedStatement.executeUpdate();
+			System.out.println(rs);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}		
 	}
 
 	@Override
@@ -101,8 +158,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 		User user = new User();
 		//System.out.println(" **** getByLogin mothod ****");
 		
-		boolean status = false;
-
+		//boolean status = false;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet rs = null;
@@ -180,6 +236,39 @@ public class UserDatabaseDaoImpl implements UserDao{
 //			connection.close()
 //		}		
 		return user;
+	}
+
+	@Override
+	public boolean delById(Long id) {
+		
+		System.out.println(" **** delById mothod ****");
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int rs;
+		boolean status = false;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(DELETE_USER_BY_ID);
+			preparedStatement.setLong(1, id);
+			rs = preparedStatement.executeUpdate();
+			System.out.println(rs);
+			status = true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}			
+		return status;
 	}
 
 }

@@ -45,9 +45,9 @@
 							<td><c:out value="${user.firstname}" /></td>
 							<td><c:out value="${user.lastname}" /></td>
 							<td><c:out value="${user.login}" /></td>
-							<td><a href="<%=request.getContextPath()%>/Controller?command=user&id=<c:out value='${user.id}' />">Edit</a>
+							<td><a href="<%=request.getContextPath()%>/Controller?command=user&ex=disp&id=<c:out value='${user.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?id=<c:out value='${user.id}' />">Delete</a></td>
+								href="<%=request.getContextPath()%>/Controller?command=user&ex=del&id=<c:out value='${user.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->

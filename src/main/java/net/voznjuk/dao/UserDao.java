@@ -5,5 +5,7 @@ import net.voznjuk.models.User;
 public interface UserDao extends UnifiedDao<User>{
 	
 	public User getByLogin(String login);
+	
+	public boolean delById(Long id);
 
 }
