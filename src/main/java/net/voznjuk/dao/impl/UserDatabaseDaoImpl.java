@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.voznjuk.dao.JDBCUtils;
 import net.voznjuk.dao.UserDao;
 import net.voznjuk.models.User;
 
@@ -18,7 +20,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	
 	private static final String INSERT_USER = "INSERT INTO employee (f_name, s_name, login, password, credentials_id) VALUES ( '?', '?', '?', '?', ?);";
 	private static final String SELECT_USER_BY_ID = "SELECT * FROM employee WHERE id = ?;";
-	private static final String SELECT_USER_BY_LOGIN = "SELECT * FROM employee WHERE login = '?';";
+	private static final String SELECT_USER_BY_LOGIN = "SELECT * FROM employee WHERE login = ?;";
 	private static final String SELECT_ALL_USERS = "SELECT * FROM employee;";
 	private static final String UPDATE_USER_BY_ID = "UPDATE employee SET f_name = '?', s_name = '?', login = '?', password = '?', credentials_id = '?' WHERE id = '?';";
 	private static final String DELETE_USER_BY_ID = "DELETE FROM employee WHERE id = '?';";
@@ -42,6 +44,9 @@ public class UserDatabaseDaoImpl implements UserDao{
 	@Override
 	public User getById(Long id) {
 		// TODO Auto-generated method stub
+		User user = new User();
+	
+		
 		return null;
 	}
 
@@ -93,8 +98,88 @@ public class UserDatabaseDaoImpl implements UserDao{
 
 	@Override
 	public User getByLogin(String login) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = new User();
+		//System.out.println(" **** getByLogin mothod ****");
+		
+		boolean status = false;
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(SELECT_USER_BY_LOGIN);
+			preparedStatement.setString(1, login);
+			System.out.println(preparedStatement.toString());
+			rs = preparedStatement.executeQuery();
+			if(rs.next()){
+				user = new User(rs.getLong("id"), rs.getString("f_name"), rs.getString("s_name"), rs.getString("login"), rs.getString("password"), rs.getString("credentials_id"));
+			}
+			
+//			System.out.println(user.toString());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+
+		
+		
+//		try (connection = DriverManager.getConnection("jdbc:mysql://193.123.66.4:3306/Cashbox?useSSL=false", "webuser", "Voz!1972");
+//
+//				// Step 2:Create a statement using connection object
+//			PreparedStatement preparedStatement = connection.prepareStatement("select * from employee where login = ?")) {
+//			preparedStatement.setString(1, login);
+//			System.out.println(preparedStatement.toString());
+//			ResultSet rs = preparedStatement.executeQuery();
+//			status = rs.next();
+//			System.out.println("Request Status" + status);
+//			user = new User(rs.getLong("id"), rs.getString("f_name"), rs.getString("s_name"), rs.getString("login"), rs.getString("password"), rs.getString("credentials_id"));
+//			
+//			rs.close();
+//			preparedStatement.close();
+//			connection.close();
+//			
+//
+//		} catch (SQLException e) {
+//			// process sql exception
+//			//printSQLException(e);
+//		} finally {
+//		
+//		}
+		
+		
+		
+		
+		
+//		try ( Connection connection = getConnection();
+//				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_LOGIN);){
+//			preparedStatement.setString(1, login);
+//			System.out.println("Prepared Statement = " + preparedStatement.toString());
+//			ResultSet rs = preparedStatement.executeQuery();
+//			
+//			user = new User(rs.getLong("id"), rs.getString("f_name"), rs.getString("s_name"), rs.getString("login"), rs.getString("password"), rs.getString("credentials_id"));
+//			System.out.println(user.toString());
+//						
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		} finally {
+//			rs.close();
+//			preparedStatement.close();
+//			connection.close()
+//		}		
+		return user;
 	}
 
 }

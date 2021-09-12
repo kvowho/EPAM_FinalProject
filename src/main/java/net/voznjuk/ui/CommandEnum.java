@@ -10,7 +10,20 @@ public enum CommandEnum {
 		{
 			this.command = new LogoutCommand();
 		}
-	};
+	}
+	,
+	USERS {
+		{
+			this.command = new UsersCommand();
+		}
+	}
+	,
+	USER {
+		{
+			this.command = new UserCommand();
+		}
+	}
+	;
 
 	ActionCommand command;
 

@@ -21,7 +21,7 @@ import net.voznjuk.models.User;
  * @WebServlet(description = "Servlet to serve all JSP related to user(employee) management", urlPatterns = { "/UserServlet" })
  */
 
-//@WebServlet("/")
+@WebServlet("/users-list")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -80,6 +80,8 @@ public class UserServlet extends HttpServlet {
 	private void usersList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<User> users = new ArrayList<>();
 		users = userDAO.getAll();
+		User user = userDAO.getByLogin("ivan");
+		System.out.println(user.getPassword() );				
 		request.setAttribute("usersList", users);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");
 		dispatcher.forward(request, response);

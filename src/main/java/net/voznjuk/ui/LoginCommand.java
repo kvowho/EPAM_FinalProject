@@ -2,6 +2,10 @@ package net.voznjuk.ui;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.voznjuk.dao.UserDao;
+import net.voznjuk.dao.impl.UserDatabaseDaoImpl;
+import net.voznjuk.models.User;
+
 public class LoginCommand implements ActionCommand {
 	private static final String PARAM_NAME_LOGIN = "login";
 	private static final String PARAM_NAME_PASSWORD = "password";
@@ -22,10 +26,18 @@ public class LoginCommand implements ActionCommand {
 //			request.setAttribute("errorLoginPassMessage", MessageManager.getProperty("message.loginerror"));
 //			page = ConfigurationManager.getProperty("path.page.login");
 //		}
-		if (login.equals("ivan")) {
+		UserDao userDAO = new UserDatabaseDaoImpl();
+		User user = userDAO.getByLogin(login);
+		System.out.println(user.getRole());
+		
+		
+		
+		if (user.getRole().equals("1")) {
 			System.out.println("***** User name is Ivan ********");
 			request.setAttribute("user", login);
-			page = "/first.jsp";
+			request.setAttribute("u_name", user.getLastname());
+			request.setAttribute("role", user.getRole());
+			page = "/Controller?command=users";
 		} else {
 			page = "/second.jsp";
 		}

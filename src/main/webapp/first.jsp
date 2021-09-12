@@ -9,6 +9,7 @@
 <body>
 
 	Welcome to page FIRST
+	User name ${u_name}, role ${role} 
 
 	<hr />
 	${user}, hello!
