@@ -23,6 +23,18 @@ public enum CommandEnum {
 			this.command = new UserCommand();
 		}
 	}
+	,
+	PRODUCTS {
+		{
+			this.command = new ProductsCommand();
+		}
+	}
+	,
+	PRODUCT {
+		{
+			this.command = new ProductCommand();
+		}
+	}
 	;
 
 	ActionCommand command;
