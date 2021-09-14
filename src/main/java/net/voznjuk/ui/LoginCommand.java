@@ -40,13 +40,19 @@ public class LoginCommand implements ActionCommand {
 			page = "/Controller?command=users";
 		} 
 		if (user.getRole().equals("2")) {
-			//System.out.println("***** User name is Ivan ********");
+			//System.out.println("***** Storekeeper ********");
 			request.setAttribute("user", login);
 			request.setAttribute("u_name", user.getLastname());
 			request.setAttribute("role", user.getRole());
 			page = "/Controller?command=products";
 		} 
-		
+		if (user.getRole().equals("3")) {
+			//System.out.println("***** Cashier or Senior cashier ********");
+			request.setAttribute("user", login);
+			request.setAttribute("u_name", user.getLastname());
+			request.setAttribute("role", user.getRole());
+			page = "/Controller?command=invoices";
+		} 
 		
 		return page;
 	}

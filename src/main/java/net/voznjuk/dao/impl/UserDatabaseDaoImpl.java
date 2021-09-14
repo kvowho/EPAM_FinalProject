@@ -98,7 +98,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void add(User model) {
+	public long add(User model) {
 		try( Connection connection = getConnection(); 
 				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER)) {
 			preparedStatement.setString(1, model.getFirstname());
@@ -110,7 +110,8 @@ public class UserDatabaseDaoImpl implements UserDao{
 			
 		}catch(Exception e) {
 			System.err.println(e.getMessage());
-		}		
+		}
+		return 0;		
 	}
 
 	@Override

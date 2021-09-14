@@ -35,6 +35,18 @@ public enum CommandEnum {
 			this.command = new ProductCommand();
 		}
 	}
+	,
+	INVOICES {
+		{
+			this.command = new InvoicesCommand();
+		}
+	}
+	,
+	INVOICE {
+		{
+			this.command = new InvoiceCommand();
+		}
+	}
 	;
 
 	ActionCommand command;

@@ -93,7 +93,7 @@ public class ProductDatabaseDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public void add(Product model) {
+	public long add(Product model) {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -120,6 +120,7 @@ public class ProductDatabaseDaoImpl implements ProductDao {
 				e.printStackTrace();
 			}
 		}
+		return 0;
 	}
 
 	@Override

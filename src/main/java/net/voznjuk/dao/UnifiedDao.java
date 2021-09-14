@@ -19,7 +19,7 @@ public interface UnifiedDao<T extends UnifiedModel> {
 	
 	public List<T> getAll();
 	
-	public void add(T model);
+	public long add(T model);
 	
 	public void update(T model);
 	
