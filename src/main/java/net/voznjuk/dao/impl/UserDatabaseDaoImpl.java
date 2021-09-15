@@ -54,7 +54,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 			connection = JDBCUtils.getConnection();
 			preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);
 			preparedStatement.setLong(1, id);
-			System.out.println(preparedStatement.toString());
+			//System.out.println(preparedStatement.toString());
 			rs = preparedStatement.executeQuery();
 			if(rs.next()){
 				user = new User(rs.getLong("id"), rs.getString("f_name"), rs.getString("s_name"), rs.getString("login"), rs.getString("password"), rs.getString("credentials_id"));

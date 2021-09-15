@@ -44,9 +44,9 @@
 							<td><c:out value="${invoice.status}" /></td>
 							<td><c:out value="${invoice.comments}" /></td>
 							<td><c:out value="${invoice.date}" /></td>
-							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${prod.id}' />">Edit</a>
+							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${invoice.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&id=<c:out value='${prod.id}' />">Delete</a></td>
+								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&id=<c:out value='${invoice.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->

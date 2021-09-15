@@ -2,14 +2,26 @@ package net.voznjuk.ui;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 import net.voznjuk.dao.InvoiceDao;
+import net.voznjuk.dao.InvoiceLineDao;
+import net.voznjuk.dao.ProductDao;
 import net.voznjuk.dao.impl.InvoiceDatabaseDaoImpl;
+import net.voznjuk.dao.impl.InvoiceLineDatabaseDaoImpl;
+import net.voznjuk.dao.impl.ProductDatabaseDaoImpl;
 import net.voznjuk.models.Invoice;
+import net.voznjuk.models.InvoiceLine;
+
 import java.sql.Timestamp;
 import java.time.*;
 import java.time.temporal.ChronoField;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InvoiceCommand implements ActionCommand {
+	
+	final static Logger logger = Logger.getLogger(InvoiceCommand.class);
 
 	@Override
 	public String execute(HttpServletRequest request) {
@@ -59,10 +71,18 @@ public class InvoiceCommand implements ActionCommand {
 
 		if (request.getParameter("ex").equals("disp")) {
 			// Request to show invoice information
-				//System.out.println("ID not empty" + Long.parseLong(id));
-				Invoice invoice = invoiceDAO.getById(Long.parseLong(id));
-				request.setAttribute("invoice", invoice);
-				page = "/invoice-form.jsp";
+			// System.out.println("ID not empty" + Long.parseLong(id));
+			
+			Invoice invoice = invoiceDAO.getById(Long.parseLong(id));
+			InvoiceLineDao invoiceListDAO = new InvoiceLineDatabaseDaoImpl();
+			List<InvoiceLine> lines = new ArrayList<>();
+			lines = invoiceListDAO.getLinesByInvoice(invoice);
+			request.setAttribute("invoiceLines", lines);
+			request.setAttribute("invoice", invoice);
+			request.setAttribute("user", request.getAttribute("login"));
+			request.setAttribute("u_name", request.getAttribute("u_name"));
+			request.setAttribute("role", request.getAttribute("role"));
+			page = "/invoice-form.jsp";
 		}
 
 		return page;

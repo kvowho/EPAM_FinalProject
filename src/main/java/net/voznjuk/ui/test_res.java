@@ -12,6 +12,23 @@ import net.voznjuk.models.User;
 public class test_res {
 
 	public static void main(String[] args) {
+		
+//        if(logger.isDebugEnabled()){
+//            logger.debug("This is debug : " + parameter);
+//        }
+//        
+//        if(logger.isInfoEnabled()){
+//            logger.info("This is info : " + parameter);
+//        }
+//        
+//        logger.warn("This is warn : " + parameter);
+//        logger.error("This is error : " + parameter);
+//        logger.fatal("This is fatal : " + parameter);
+		
+		
+		
+		
+		
 //		// TODO Auto-generated method stub
 //		ResourceBundle bundleDefault = ResourceBundle.getBundle("resources");
 //		System.out.println(bundleDefault.getString("somemess"));

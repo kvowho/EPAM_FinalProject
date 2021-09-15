@@ -15,8 +15,7 @@
 			
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/Controller?command=product" class="btn btn-success">Add
-					New Product</a>
+				<a href="<%=request.getContextPath()%>/Controller?command=invoice" class="btn btn-success">Add product to invoice</a>
 			</div>
 			
 			User name ${u_name}, role ${role}
@@ -32,24 +31,26 @@
 						<th>ID</th>
 						<th>Product Name</th>
 						<th>Description</th>
-						<th>Quantity Available</th>
-						<th>Price</th>
+						<th>Quantity available</th>
+						<th>Quantity in invoice</th>
+						<th>Price in invoice</th>
 						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="prod" items="${products}">
+					<c:forEach var="invoiceLine" items="${invoiceLines}">
 
 						<tr>
-							<td><c:out value="${prod.id}" /></td>
-							<td><c:out value="${prod.name}" /></td>
-							<td><c:out value="${prod.quantity}" /></td>
-							<td><c:out value="${prod.price}" /></td>
-							<td><c:out value="${prod.total}" /></td>
-							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${prod.id}' />">Edit</a>
+							<td><c:out value="${invoiceLine.product.id}"/></td>
+							<td><c:out value="${invoiceLine.product.name}"/></td>
+							<td><c:out value="${invoiceLine.product.description}"/></td>
+							<td><c:out value="${invoiceLine.product.stockQuantity}"/></td>
+							<td><c:out value="${invoiceLine.quantity}"/></td>
+							<td><c:out value="${invoiceLine.price}"/></td>
+							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${invoice.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&id=<c:out value='${prod.id}' />">Delete</a></td>
+								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&id=<c:out value='${invoice.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->

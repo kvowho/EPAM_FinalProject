@@ -2,13 +2,19 @@ package net.voznjuk.dao;
 
 import java.util.List;
 
+import net.voznjuk.models.Invoice;
+import net.voznjuk.models.InvoiceLine;
+
 public interface InvoiceLineDao {
 	
-	public List<InvoiceLineDao> getAll();
+	public List<InvoiceLine> getAll();
 	
-	public long add(InvoiceLineDao model);
+	public List<InvoiceLine> getLinesByInvoice(Invoice model);
 	
-	public void update(InvoiceLineDao model);
+	public long add(InvoiceLine model);
 	
-	public void delete(InvoiceLineDao model);
+	public void update(InvoiceLine model);
+	
+	public void delete(InvoiceLine model);
+
 }

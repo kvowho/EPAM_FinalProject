@@ -71,7 +71,6 @@ public class ProductDatabaseDaoImpl implements ProductDao {
 			rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				//System.out.println(rs.getRef(DELETE_PROD_BY_ID));
 				products.add(new Product( rs.getLong(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getFloat(5), rs.getInt(6)) );				
 			}			
 		} catch (Exception e) {
