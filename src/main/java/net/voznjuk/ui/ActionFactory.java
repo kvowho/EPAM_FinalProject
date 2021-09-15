@@ -2,13 +2,27 @@ package net.voznjuk.ui;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 public class ActionFactory {
+	
+	final static Logger logger = Logger.getLogger(InvoiceCommand.class);
+	
 	public ActionCommand defineCommand(HttpServletRequest request) {
 		ActionCommand current = new EmptyCommand();
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("ActionFactory requested command is " + request.getParameter("command"));
+		}
 
 		String action = request.getParameter("command");
-		System.out.println("Action = "+ action);
+
 		if (action == null || action.isEmpty()) {
+			
+			if (logger.isDebugEnabled()) {
+				logger.error("ActionFactory wrong or empty \"action\" " + current.toString()); 
+			}
+			request.setAttribute("wrongAction", MessageManager.getProperty("message.wrongaction"));
 
 			return current;
 		}

@@ -8,12 +8,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.xdevapi.Statement;
-
 import net.voznjuk.dao.InvoiceDao;
 import net.voznjuk.dao.JDBCUtils;
 import net.voznjuk.models.Invoice;
-import net.voznjuk.models.Product;
 
 public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 	

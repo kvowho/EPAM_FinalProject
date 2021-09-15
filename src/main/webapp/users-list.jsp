@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h3 class="text-center">List of Users</h3>
+<h3 class="text-center">List of Users</h3>${wrongAction}
 			<hr>
 			<a href="Controller?command=logout">Logout</a>
 			

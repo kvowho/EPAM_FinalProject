@@ -79,9 +79,9 @@ public class InvoiceCommand implements ActionCommand {
 			lines = invoiceListDAO.getLinesByInvoice(invoice);
 			request.setAttribute("invoiceLines", lines);
 			request.setAttribute("invoice", invoice);
-			request.setAttribute("user", request.getAttribute("login"));
-			request.setAttribute("u_name", request.getAttribute("u_name"));
-			request.setAttribute("role", request.getAttribute("role"));
+//			request.setAttribute("user", request.getAttribute("login"));
+//			request.setAttribute("u_name", request.getAttribute("u_name"));
+//			request.setAttribute("role", request.getAttribute("role"));
 			page = "/invoice-form.jsp";
 		}
 

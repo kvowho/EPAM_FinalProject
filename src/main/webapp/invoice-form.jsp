@@ -18,7 +18,8 @@
 				<a href="<%=request.getContextPath()%>/Controller?command=invoice" class="btn btn-success">Add product to invoice</a>
 			</div>
 			
-			User name ${u_name}, role ${role}
+			<c:out value="${sessionScope.role}"/>
+			<c:out value="${sessionScope.user}"/>
 			
 			<br>
 

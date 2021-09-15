@@ -1,6 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page pageEncoding="UTF-8" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+ <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+ <fmt:setLocale value="${language}" />
+ <fmt:setBundle basename="com.example.i18n.text" />
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +13,18 @@
 </head>
 <body>
 
+
+<form>
+             <select id="language" name="language" onchange="submit()">
+                 <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+                 <option value="nl" ${language == 'nl' ? 'selected' : ''}>Nederlands</option>
+                 <option value="es" ${language == 'es' ? 'selected' : ''}>Español</option>
+             </select>
+         </form>
+
 <h3 class="text-center">Invoices List</h3>
+
+<label for="username"><fmt:message key="login.label.username" />:</label>
 			<hr>
 			<a href="Controller?command=logout">Logout</a>
 			
@@ -18,7 +33,8 @@
 				<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=new" class="btn btn-success">Add New Invoice</a>
 			</div>
 			
-			User name ${u_name}, role ${role}
+			<c:out value="${sessionScope.role}"/>
+			<c:out value="${sessionScope.user}"/>
 			
 			<br>
 

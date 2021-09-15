@@ -1,12 +1,18 @@
 package net.voznjuk.ui;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
 
 import net.voznjuk.dao.UserDao;
 import net.voznjuk.dao.impl.UserDatabaseDaoImpl;
 import net.voznjuk.models.User;
 
 public class LoginCommand implements ActionCommand {
+	
+	final static Logger logger = Logger.getLogger(InvoiceCommand.class);
+	
 	private static final String PARAM_NAME_LOGIN = "login";
 	private static final String PARAM_NAME_PASSWORD = "password";
 
@@ -28,7 +34,13 @@ public class LoginCommand implements ActionCommand {
 //		}
 		UserDao userDAO = new UserDatabaseDaoImpl();
 		User user = userDAO.getByLogin(login);
-		//System.out.println(user.getRole());
+		HttpSession session = request.getSession();
+		session.setAttribute("role", user.getRole());
+		session.setAttribute("user", login);
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("LoginStage user " + login + " successfully get in with " + user.getRole() + "privileges");
+		}
 		
 		
 		
