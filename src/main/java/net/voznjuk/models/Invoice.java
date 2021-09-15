@@ -1,7 +1,6 @@
 package net.voznjuk.models;
 
 import java.time.Instant;
-import java.util.Date;
 
 public class Invoice extends UnifiedModel {
 	
@@ -23,11 +22,11 @@ public class Invoice extends UnifiedModel {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Invoice(Long id, String status, Instant date, String comments) {
+	public Invoice(Long id, String status, String comment, Instant timestamp) {
 		super(id);
 		this.status = status;
-		this.date = date;
-		this.comments = comments;
+		this.comments = comment;
+		this.date = timestamp;
 	}
 
 	public String getStatus() {

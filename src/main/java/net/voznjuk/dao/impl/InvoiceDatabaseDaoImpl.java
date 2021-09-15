@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.cj.xdevapi.Statement;
@@ -12,12 +13,13 @@ import com.mysql.cj.xdevapi.Statement;
 import net.voznjuk.dao.InvoiceDao;
 import net.voznjuk.dao.JDBCUtils;
 import net.voznjuk.models.Invoice;
+import net.voznjuk.models.Product;
 
 public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 	
 	private static final String INSERT_INV = "INSERT INTO invoice (status, created, comments) VALUES ( ?, ?, ?);";
-	private static final String SELECT_PROD_BY_ID = "SELECT * FROM product WHERE id = ?;";
-	private static final String SELECT_ALL_INVOICES = "SELECT * FROM product;";
+	private static final String SELECT_INV_BY_ID = "SELECT * FROM invoice WHERE id = ?;";
+	private static final String SELECT_ALL_INVOICES = "SELECT * FROM invoice;";
 	private static final String UPDATE_PROD_BY_ID = "UPDATE product SET name = ?, description = ?, stock = ?, price = ?, product_status_id = ? WHERE id = ?;";
 	private static final String DELETE_PROD_BY_ID = "DELETE FROM product WHERE id = ?;";
 
@@ -27,14 +29,71 @@ public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 
 	@Override
 	public Invoice getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Invoice invoice = new Invoice();
+		//System.out.println(" **** getById method ****");
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(SELECT_INV_BY_ID);
+			preparedStatement.setLong(1, id);
+			System.out.println(preparedStatement.toString());
+			rs = preparedStatement.executeQuery();
+			if(rs.next()){
+				invoice = new Invoice(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4).toInstant());
+			}			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}	
+		return invoice;
 	}
 
 	@Override
 	public List<Invoice> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Invoice> invoices = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(SELECT_ALL_INVOICES);
+			rs = preparedStatement.executeQuery();
+			
+			while (rs.next()) {
+				//System.out.println(rs.getString(2));
+				invoices.add(new Invoice( rs.getLong(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4).toInstant()) );				
+			}			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+			e.printStackTrace(System.out);
+		} finally {
+			try {
+				rs.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//System.out.println(products.size());
+		return invoices;
 	}
 
 	@Override

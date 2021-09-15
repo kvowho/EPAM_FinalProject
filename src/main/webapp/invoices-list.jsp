@@ -15,7 +15,7 @@
 			
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/Controller?command=invoice&test=17&ex=new" class="btn btn-success">Add New Invoice</a>
+				<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=new" class="btn btn-success">Add New Invoice</a>
 			</div>
 			
 			User name ${u_name}, role ${role}
@@ -30,19 +30,20 @@
 					<tr>
 						<th>ID</th>
 						<th>Status</th>
-						<th>Items</th>
+						<th>Comments</th>
+						<th>Created</th>
 						<th>Total amount</th>
 					</tr>
 				</thead>
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="prod" items="${invoiceList}">
+					<c:forEach var="invoice" items="${invoiceList}">
 
 						<tr>
 							<td><c:out value="${invoice.id}" /></td>
-							<td><c:out value="${invoice.name}" /></td>
-							<td><c:out value="${invoice.description}" /></td>
-							<td><c:out value="${invoice.stockQuantity}" /></td>
+							<td><c:out value="${invoice.status}" /></td>
+							<td><c:out value="${invoice.comments}" /></td>
+							<td><c:out value="${invoice.date}" /></td>
 							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${prod.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&id=<c:out value='${prod.id}' />">Delete</a></td>

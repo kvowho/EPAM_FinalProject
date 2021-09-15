@@ -16,7 +16,7 @@ public class InvoiceCommand implements ActionCommand {
 		String page = null;
 		InvoiceDao invoiceDAO = new InvoiceDatabaseDaoImpl();
 		String id = request.getParameter("id");
-		System.out.println("InvoiceCommand started with " + request.getParameter("ex")+ request.getParameter("test"));
+		//System.out.println("InvoiceCommand started with " + request.getParameter("ex")+ request.getParameter("test"));
 
 		if (request.getParameter("ex").equals("del")) {
 			// Request to delete user has been received
@@ -58,11 +58,11 @@ public class InvoiceCommand implements ActionCommand {
 		}
 
 		if (request.getParameter("ex").equals("disp")) {
-			// Request to show user information
-//				System.out.println("ID not empty" + Long.parseLong(id));
-//				Product product = productDAO.getById(Long.parseLong(id));
-//				request.setAttribute("product", product);
-//				page = "/invoice-form.jsp";
+			// Request to show invoice information
+				//System.out.println("ID not empty" + Long.parseLong(id));
+				Invoice invoice = invoiceDAO.getById(Long.parseLong(id));
+				request.setAttribute("invoice", invoice);
+				page = "/invoice-form.jsp";
 		}
 
 		return page;
