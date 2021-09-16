@@ -15,7 +15,7 @@
 			
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/Controller?command=invoice" class="btn btn-success">Add product to invoice</a>
+				<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=addl&inv_id=<c:out value='${invoice.id}' />" class="btn btn-success">Add product to invoice</a>
 			</div>
 			
 			<c:out value="${sessionScope.role}"/>
@@ -51,7 +51,7 @@
 							<td><c:out value="${invoiceLine.price}"/></td>
 							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${invoice.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&id=<c:out value='${invoice.id}' />">Delete</a></td>
+								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&inv_id=<c:out value='${invoice.id}'/>&prod_id=<c:out value='${invoiceLine.product.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->

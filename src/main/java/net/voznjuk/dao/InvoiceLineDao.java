@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.voznjuk.models.Invoice;
 import net.voznjuk.models.InvoiceLine;
+import net.voznjuk.models.InvoiceLineKey;
 
 public interface InvoiceLineDao {
 	
@@ -15,6 +16,6 @@ public interface InvoiceLineDao {
 	
 	public void update(InvoiceLine model);
 	
-	public void delete(InvoiceLine model);
+	public void delete(InvoiceLineKey model);
 
 }

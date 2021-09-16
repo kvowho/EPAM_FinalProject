@@ -12,6 +12,8 @@ import net.voznjuk.dao.impl.InvoiceLineDatabaseDaoImpl;
 import net.voznjuk.dao.impl.ProductDatabaseDaoImpl;
 import net.voznjuk.models.Invoice;
 import net.voznjuk.models.InvoiceLine;
+import net.voznjuk.models.InvoiceLineKey;
+import net.voznjuk.models.Product;
 
 import java.sql.Timestamp;
 import java.time.*;
@@ -28,32 +30,45 @@ public class InvoiceCommand implements ActionCommand {
 		String page = null;
 		InvoiceDao invoiceDAO = new InvoiceDatabaseDaoImpl();
 		String id = request.getParameter("id");
-		//System.out.println("InvoiceCommand started with " + request.getParameter("ex")+ request.getParameter("test"));
 
-		if (request.getParameter("ex").equals("del")) {
-			// Request to delete user has been received
-			invoiceDAO.delById(Long.parseLong(id));
-			page = "/Controller?command=products";
-		}
-
-		if (request.getParameter("ex").equals("new")) {
-			// Request to create new invoice has been received
-			// To create new blank invoice and get ID
+		if (request.getParameter("ex").equals("addl")) {
+			// Request to add new line to the invoice
 			
-			//Instant instant = Instant.now();
-			Instant instant = Instant.now().with( ChronoField.NANO_OF_SECOND , 123_456_789L );
-			Timestamp timestamp = Timestamp.from(instant);
-			Invoice invoice = new Invoice();
-			invoice.setStatus("Just created");
-			invoice.setDate(instant);
-			invoice.setComments("Comments if any");
-			//System.out.println(instant.toString());
-			//System.out.println(timestamp.toString());
-			long createdID = invoiceDAO.add(invoice);
+			String prod_id = request.getParameter("prod_id");
+			String inv_id = request.getParameter("inv_id");
+			String quantity = "5";
+			
+			if (logger.isDebugEnabled()) {
+				logger.debug("LINES request to add lines to " + inv_id);
+			}
+			
+			if ( prod_id != null && !prod_id.equals("") && inv_id != null && !inv_id.equals("")) {
+				if (logger.isDebugEnabled()) {
+					logger.debug("LINES request to add product " + prod_id + " to invoice " + inv_id );
+				}
+				//Procedure to add new line to invoice
+				InvoiceLineDao invoiceLaineDAO = new InvoiceLineDatabaseDaoImpl();
+				Invoice invoice = invoiceDAO.getById(Long.parseLong(inv_id));
+				ProductDao productDAO = new ProductDatabaseDaoImpl();
+				Product product = productDAO.getById(Long.parseLong(prod_id));
+				InvoiceLineKey invoiceLineKey = new InvoiceLineKey(invoice.getId(), product.getId());
+				InvoiceLine invoiceLine = new InvoiceLine(invoiceLineKey, invoice, product, product.getPrice(), Long.parseLong(quantity));
+				invoiceLaineDAO.add(invoiceLine);
+				request.setAttribute("id", inv_id);
+				page = "/Controller?command=invoice&ex=disp&id="+inv_id;
+				
+			} else {
+				ProductDao productDAO = new ProductDatabaseDaoImpl();
+				List<Product> products = new ArrayList<>();
+				products = productDAO.getAll();
+				request.setAttribute("productList", products);
+				request.setAttribute("inv_id", inv_id);
+				//RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");
+				//dispatcher.forward(request, response);
+				page = "/invaddline-form.jsp";			
+			}		
+			return page;
 
-			// To send new created invoice to edit form by ID
-
-			page = "/Controller?command=invoices";
 		}
 
 		if (request.getParameter("ex").equals("upd")) {
@@ -71,7 +86,9 @@ public class InvoiceCommand implements ActionCommand {
 
 		if (request.getParameter("ex").equals("disp")) {
 			// Request to show invoice information
-			// System.out.println("ID not empty" + Long.parseLong(id));
+			if (logger.isDebugEnabled()) {
+				logger.debug("INVOICE request to show lines for invoice " + id);
+			}
 			
 			Invoice invoice = invoiceDAO.getById(Long.parseLong(id));
 			InvoiceLineDao invoiceListDAO = new InvoiceLineDatabaseDaoImpl();
@@ -83,6 +100,29 @@ public class InvoiceCommand implements ActionCommand {
 //			request.setAttribute("u_name", request.getAttribute("u_name"));
 //			request.setAttribute("role", request.getAttribute("role"));
 			page = "/invoice-form.jsp";
+		}
+		
+		if (request.getParameter("ex").equals("del")) {
+			// Request to delete line from invoice
+			String prod_id = request.getParameter("prod_id");
+			String inv_id = request.getParameter("inv_id");
+			
+			if (logger.isDebugEnabled()) {
+				logger.debug("LINES request to delete line from " + inv_id);
+			}
+			
+			if ( prod_id != null && !prod_id.equals("") && inv_id != null && !inv_id.equals("")) {
+				if (logger.isDebugEnabled()) {
+					logger.debug("LINES request to add product " + prod_id + " to invoice " + inv_id );
+				}
+				//Procedure to add new line to invoice
+				InvoiceLineDao invoiceLaineDAO = new InvoiceLineDatabaseDaoImpl();
+				InvoiceLineKey invoiceLineKey = new InvoiceLineKey(Long.parseLong(inv_id), Long.parseLong(prod_id));
+				invoiceLaineDAO.delete(invoiceLineKey);				
+			}
+			request.setAttribute("id", inv_id);
+			System.out.println("Invoice ID after deletion " + inv_id);
+			page = "/Controller?command=invoice&ex=disp&id="+inv_id;		
 		}
 
 		return page;

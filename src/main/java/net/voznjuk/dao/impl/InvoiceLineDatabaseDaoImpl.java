@@ -22,11 +22,11 @@ public class InvoiceLineDatabaseDaoImpl implements InvoiceLineDao {
 	
 	final static Logger logger = Logger.getLogger(InvoiceCommand.class);
 	
-	private static final String INSERT_INV = "INSERT INTO invoice (status, created, comments) VALUES ( ?, ?, ?);";
+	private static final String INSERT_INVOICE_LINE = "INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (?, ?, ?, ?);";
 	private static final String SELECT_INV_BY_ID = "SELECT * FROM invoice WHERE id = ?;";
 	private static final String SELECT_ALL_LINES_BY_INV = "SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = ?;";
 	private static final String UPDATE_PROD_BY_ID = "UPDATE product SET name = ?, description = ?, stock = ?, price = ?, product_status_id = ? WHERE id = ?;";
-	private static final String DELETE_PROD_BY_ID = "DELETE FROM product WHERE id = ?;";
+	private static final String DELETE_LINE_FROM_INVOICE = "DELETE FROM invoice_has_product WHERE invoice_id = ? AND product_id = ?;";
 
 
 	@Override
@@ -37,7 +37,40 @@ public class InvoiceLineDatabaseDaoImpl implements InvoiceLineDao {
 
 	@Override
 	public long add(InvoiceLine model) {
-		// TODO Auto-generated method stub
+		
+		InvoiceLineKey invoiceLineKey = model.getId();
+		Product product = model.getProduct();
+		Invoice invoice = model.getInvoice();
+		float price = model.getPrice();
+		Long quantity = model.getQuantity();
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = JDBCUtils.getConnection(); 
+			preparedStatement = connection.prepareStatement(INSERT_INVOICE_LINE);
+					
+			preparedStatement.setLong(2, invoiceLineKey.getInvoiceId());
+			preparedStatement.setLong(1, invoiceLineKey.getProductId());
+			preparedStatement.setLong(3, quantity);
+			preparedStatement.setFloat(4, price);
+			if (logger.isDebugEnabled()) {
+				logger.debug("ILDDAO request to add line" + preparedStatement.toString());
+			}			
+			preparedStatement.execute();
+			
+		} catch(Exception e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}		
 		return 0;
 	}
 
@@ -48,8 +81,37 @@ public class InvoiceLineDatabaseDaoImpl implements InvoiceLineDao {
 	}
 
 	@Override
-	public void delete(InvoiceLine model) {
-		// TODO Auto-generated method stub
+	public void delete(InvoiceLineKey model) {
+		
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int rs = 0;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(DELETE_LINE_FROM_INVOICE);
+			preparedStatement.setLong(1, model.getProductId());
+			preparedStatement.setLong(2, model.getInvoiceId());
+			if (logger.isDebugEnabled()) {
+				logger.debug("ILDDAO request to delete line" + preparedStatement.toString());
+			}			
+			preparedStatement.execute();
+			rs = preparedStatement.executeUpdate();
+			//System.out.println(rs);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
 		
 	}
 

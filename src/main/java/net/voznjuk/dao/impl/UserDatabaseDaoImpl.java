@@ -117,7 +117,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	@Override
 	public void update(User model) {
 		
-		System.out.println(" **** updById mothod ****");
+		//System.out.println(" **** updById mothod ****");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		int rs = 0;
