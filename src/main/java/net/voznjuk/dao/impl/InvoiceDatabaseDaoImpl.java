@@ -22,7 +22,7 @@ public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 	private static final String INSERT_INV = "INSERT INTO invoice (status, created, comments) VALUES ( ?, ?, ?);";
 	private static final String SELECT_INV_BY_ID = "SELECT * FROM invoice WHERE id = ?;";
 	private static final String SELECT_ALL_INVOICES = "SELECT * FROM invoice;";
-	private static final String UPDATE_PROD_BY_ID = "UPDATE product SET name = ?, description = ?, stock = ?, price = ?, product_status_id = ? WHERE id = ?;";
+	private static final String UPDATE_INV_BY_ID = "UPDATE invoice SET status = ?, comments = ? WHERE id = ?;";
 	private static final String DELETE_INV_BY_ID = "DELETE FROM invoice WHERE id = ?;";
 
 	public InvoiceDatabaseDaoImpl() {
@@ -136,8 +136,33 @@ public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 
 	@Override
 	public void update(Invoice model) {
-		// TODO Auto-generated method stub
-
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int rs = 0;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(UPDATE_INV_BY_ID);
+			preparedStatement.setString(1, model.getStatus());
+			preparedStatement.setString(2, model.getComments());
+			preparedStatement.setLong(3, model.getId());
+			if (logger.isDebugEnabled()) {
+				logger.debug("ILDDAO request to update invoice" + preparedStatement.toString());
+			}
+			rs = preparedStatement.executeUpdate();			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
 	}
 
 	@Override

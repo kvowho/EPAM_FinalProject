@@ -10,8 +10,10 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import net.voznjuk.dao.InvoiceDao;
 import net.voznjuk.dao.InvoiceLineDao;
 import net.voznjuk.dao.JDBCUtils;
+import net.voznjuk.dao.ProductDao;
 import net.voznjuk.models.Invoice;
 import net.voznjuk.models.InvoiceLine;
 import net.voznjuk.models.InvoiceLineKey;
@@ -23,9 +25,9 @@ public class InvoiceLineDatabaseDaoImpl implements InvoiceLineDao {
 	final static Logger logger = Logger.getLogger(InvoiceCommand.class);
 	
 	private static final String INSERT_INVOICE_LINE = "INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (?, ?, ?, ?);";
-	private static final String SELECT_INV_BY_ID = "SELECT * FROM invoice WHERE id = ?;";
+	private static final String SELECT_LINE_BY_KEY = "SELECT * FROM invoice_has_product WHERE invoice_id = ? AND product_id = ?;";
 	private static final String SELECT_ALL_LINES_BY_INV = "SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = ?;";
-	private static final String UPDATE_PROD_BY_ID = "UPDATE product SET name = ?, description = ?, stock = ?, price = ?, product_status_id = ? WHERE id = ?;";
+	private static final String UPDATE_INVOICE_LINE_BY_KEY = "UPDATE invoice_has_product SET quantity = ? WHERE invoice_id = ? AND product_id = ?;";
 	private static final String DELETE_LINE_FROM_INVOICE = "DELETE FROM invoice_has_product WHERE invoice_id = ? AND product_id = ?;";
 
 
@@ -76,8 +78,39 @@ public class InvoiceLineDatabaseDaoImpl implements InvoiceLineDao {
 
 	@Override
 	public void update(InvoiceLine model) {
-		// TODO Auto-generated method stub
+
+		InvoiceLineKey invoiceLineKey = model.getId();
+		Product product = model.getProduct();
+		Invoice invoice = model.getInvoice();
+		float price = model.getPrice();
+		Long quantity = model.getQuantity();
 		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = JDBCUtils.getConnection(); 
+			preparedStatement = connection.prepareStatement(UPDATE_INVOICE_LINE_BY_KEY);
+					
+			preparedStatement.setLong(3, invoiceLineKey.getInvoiceId());
+			preparedStatement.setLong(2, invoiceLineKey.getProductId());
+			preparedStatement.setLong(1, quantity);
+			if (logger.isDebugEnabled()) {
+				logger.debug("ILDDAO request to update line" + preparedStatement.toString());
+			}			
+			preparedStatement.execute();
+			
+		} catch(Exception e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}		
 	}
 
 	@Override
@@ -87,6 +120,7 @@ public class InvoiceLineDatabaseDaoImpl implements InvoiceLineDao {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		int rs = 0;
+		
 		
 		try {
 			connection = JDBCUtils.getConnection();
@@ -158,6 +192,46 @@ public class InvoiceLineDatabaseDaoImpl implements InvoiceLineDao {
 			}
 		}
 		return lines;
+	}
+
+	@Override
+	public InvoiceLine getInvoiceLineByKey(InvoiceLineKey model) {
+		ProductDao productDAO = new ProductDatabaseDaoImpl();
+		Product product = productDAO.getById(model.getProductId());
+		InvoiceDao invoiceDAO = new InvoiceDatabaseDaoImpl();
+		Invoice invoice = invoiceDAO.getById(model.getInvoiceId());
+		InvoiceLine invoiceLine = null;
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(SELECT_LINE_BY_KEY);
+			preparedStatement.setLong(2, model.getInvoiceId());
+			preparedStatement.setLong(1, model.getProductId());
+			if (logger.isDebugEnabled()) {
+				logger.debug("ILDDAO request to select invoice lines by KEY" + preparedStatement.toString());
+			}
+			rs = preparedStatement.executeQuery();
+			
+			while (rs.next()) {
+				invoiceLine = new InvoiceLine(model, invoice, product, rs.getFloat(4), rs.getLong(3));
+			}						
+		} catch(Exception e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return invoiceLine;
 	}
 
 }

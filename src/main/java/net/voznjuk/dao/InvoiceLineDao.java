@@ -17,5 +17,7 @@ public interface InvoiceLineDao {
 	public void update(InvoiceLine model);
 	
 	public void delete(InvoiceLineKey model);
+	
+	public InvoiceLine getInvoiceLineByKey(InvoiceLineKey model);
 
 }
