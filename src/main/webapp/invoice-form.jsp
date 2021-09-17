@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -50,14 +50,15 @@
 							<td><c:out value="${invoiceLine.quantity}"/></td>
 							<td><c:out value="${invoiceLine.price}"/></td>
 							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${invoice.id}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&inv_id=<c:out value='${invoice.id}'/>&prod_id=<c:out value='${invoiceLine.product.id}'/>">Delete</a></td>
+								&nbsp;&nbsp;&nbsp;&nbsp; 
+								<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&inv_id=<c:out value='${invoice.id}'/>&prod_id=<c:out value='${invoiceLine.product.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->
 				</tbody>
 
 			</table>
+			<a href="<%=request.getContextPath()%>/Controller?command=invoices" class="btn btn-success">Back to invoices list</a>
 
 </body>
 </html>

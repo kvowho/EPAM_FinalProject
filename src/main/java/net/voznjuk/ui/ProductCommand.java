@@ -51,7 +51,7 @@ public class ProductCommand implements ActionCommand {
 		
 		
 		if (id != null && id.equals("0")) {
-			//System.out.println("New user form has been received");
+			//System.out.println("New product form has been received");
 			Product product = new Product();
 			product.setName(request.getParameter("name"));
 			product.setDescription(request.getParameter("description"));
@@ -60,8 +60,7 @@ public class ProductCommand implements ActionCommand {
 			product.setAvailabilityStatus(Integer.parseInt(request.getParameter("status")));
 			productDAO.add(product);
 			page = "/Controller?command=products";
-			
-			//System.out.println(user.toString());
+
 		}
 		
 		

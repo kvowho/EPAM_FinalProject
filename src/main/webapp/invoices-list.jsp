@@ -62,7 +62,7 @@
 							<td><c:out value="${invoice.date}" /></td>
 							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${invoice.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=del&id=<c:out value='${invoice.id}' />">Delete</a></td>
+								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=deli&id=<c:out value='${invoice.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->

@@ -8,17 +8,22 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import net.voznjuk.dao.InvoiceDao;
 import net.voznjuk.dao.JDBCUtils;
 import net.voznjuk.models.Invoice;
+import net.voznjuk.ui.InvoiceCommand;
 
 public class InvoiceDatabaseDaoImpl implements InvoiceDao {
+	
+	final static Logger logger = Logger.getLogger(InvoiceCommand.class);
 	
 	private static final String INSERT_INV = "INSERT INTO invoice (status, created, comments) VALUES ( ?, ?, ?);";
 	private static final String SELECT_INV_BY_ID = "SELECT * FROM invoice WHERE id = ?;";
 	private static final String SELECT_ALL_INVOICES = "SELECT * FROM invoice;";
 	private static final String UPDATE_PROD_BY_ID = "UPDATE product SET name = ?, description = ?, stock = ?, price = ?, product_status_id = ? WHERE id = ?;";
-	private static final String DELETE_PROD_BY_ID = "DELETE FROM product WHERE id = ?;";
+	private static final String DELETE_INV_BY_ID = "DELETE FROM invoice WHERE id = ?;";
 
 	public InvoiceDatabaseDaoImpl() {
 		// TODO Auto-generated constructor stub
@@ -113,7 +118,7 @@ public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 
 			if (rs.next()) {
 			    key = rs.getLong(1);
-			    System.out.println(key);
+			    //System.out.println(key);
 			}			
 		} catch(Exception e) {
 			System.err.println(e.getMessage());
@@ -137,14 +142,40 @@ public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 
 	@Override
 	public void delete(Invoice model) {
-		// TODO Auto-generated method stub
 
+		
 	}
 
 	@Override
 	public int delById(Long id) {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int rs = 0;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(DELETE_INV_BY_ID);
+			preparedStatement.setLong(1, id);
+			if (logger.isDebugEnabled()) {
+				logger.debug("ILDDAO request to delete line" + preparedStatement.toString());
+			}			
+			preparedStatement.execute();
+			rs = preparedStatement.executeUpdate();
+			//System.out.println(rs);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
+		return rs;
 	}
 
 }

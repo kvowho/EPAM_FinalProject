@@ -36,7 +36,7 @@ public class InvoiceCommand implements ActionCommand {
 			
 			String prod_id = request.getParameter("prod_id");
 			String inv_id = request.getParameter("inv_id");
-			String quantity = "5";
+			String quantity = "0";
 			
 			if (logger.isDebugEnabled()) {
 				logger.debug("LINES request to add lines to " + inv_id);
@@ -83,6 +83,48 @@ public class InvoiceCommand implements ActionCommand {
 //				productDAO.update(product);
 //				page = "/Controller?command=invoices";
 		}
+		
+		if (request.getParameter("ex").equals("new")) {
+			// Request for new invoice has been received
+			if (logger.isDebugEnabled()) {
+				logger.debug("INVOICES request to create new invoice");
+			}
+			String status = "Default status";
+			String comment = "Default comment";
+			Invoice invoice = new Invoice();
+			invoice.setStatus(status);
+			invoice.setComments(comment);
+			invoice.setDate(Instant.now());
+			long inv_id = invoiceDAO.add(invoice);
+//			request.setAttribute("ex", "disp");
+//			request.setAttribute("id", inv_id);
+//			page = "/Controller?command=invoice";
+			page = "/Controller?command=invoice&ex=disp&id=" + inv_id;
+			
+			
+//				Product product = new Product();
+//				product.setId(Long.parseLong(request.getParameter("id")));
+//				product.setName(request.getParameter("name"));
+//				product.setDescription(request.getParameter("description"));
+//				product.setStockQuantity(Long.parseLong(request.getParameter("quantity")));
+//				product.setPrice(Float.parseFloat(request.getParameter("price")));
+//				product.setAvailabilityStatus(Integer.parseInt(request.getParameter("status")));
+//				productDAO.update(product);
+//				page = "/Controller?command=invoices";
+		}
+		
+		if (request.getParameter("ex").equals("deli")) {
+			// Request to delete invoice has been received
+			if (logger.isDebugEnabled()) {
+				logger.debug("INVOICES request to delete invoice");
+			}
+
+			long inv_id = invoiceDAO.delById(Long.parseLong(id));
+//			request.setAttribute("ex", "disp");
+//			request.setAttribute("id", inv_id);
+//			page = "/Controller?command=invoice";
+			page = "/Controller?command=invoices";
+		}
 
 		if (request.getParameter("ex").equals("disp")) {
 			// Request to show invoice information
@@ -122,9 +164,8 @@ public class InvoiceCommand implements ActionCommand {
 			}
 			request.setAttribute("id", inv_id);
 			System.out.println("Invoice ID after deletion " + inv_id);
-			page = "/Controller?command=invoice&ex=disp&id="+inv_id;		
+			page = "/Controller?command=invoice&ex=disp&id=" + inv_id;		
 		}
-
 		return page;
 	}
 
