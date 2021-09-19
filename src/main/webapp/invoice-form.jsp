@@ -18,15 +18,28 @@
 		<div>
 			<a class="btn btn-primary"
 				href="<%=request.getContextPath()%>/Controller?command=invoices"
-				class="btn btn-success" " role="button">Back to invoices list</a> <a
-				class="btn btn-primary disabled" href="Controller?command=logout"
+				class="btn btn-success" " role="button">Back to invoices list</a> 
+			<a class="btn btn-primary disabled" href="Controller?command=logout"
 				role="button" aria-disabled="false">Logout</a> You are
 			<c:out value="${sessionScope.user}" />
 			under role
 			<c:out value="${sessionScope.role}" />
 		</div>
+		<div>
+			<form method="POST" action="Controller">
+				<input type="hidden" name="command" value="invoice" /> <input
+					type="hidden" name="ex" value="disp" /> <input type="hidden"
+					name="id" value="${invoice.id}" /> <select id="new_lang_loc"
+					name="new_lang_loc" onchange="submit()">
+					<option value="US" ${lang_loc == 'US' ? 'selected' : ''}>English</option>
+					<option value="UA" ${lang_loc == 'UA' ? 'selected' : ''}>Ukrainian</option>
+					<option value="RU" ${lang_loc == 'RU' ? 'selected' : ''}>Russian</option>
+				</select>
+			</form>
+		</div>
 
 		<hr>
+		 >>>>> ${HelloMessage}
 
 		<h3 class="text-center">Invoice N ${invoice.id}</h3>
 
@@ -63,11 +76,11 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">Product Name</th>
-					<th scope="col">Description</th>
-					<th scope="col">Quantity available</th>
-					<th scope="col">Quantity in invoice</th>
-					<th scope="col">Price in invoice</th>
+					<th scope="col">${iProdName}</th>
+					<th scope="col">${iProdDescription}</th>
+					<th scope="col">${iProdStockNum}</th>
+					<th scope="col">${iProdInvNum}</th>
+					<th scope="col">${iProdPriceInInv}</th>
 					<th scope="col">ex</th>
 				</tr>
 			</thead>

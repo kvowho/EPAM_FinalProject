@@ -1,9 +1,11 @@
 package net.voznjuk.ui;
 
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MessageManager {
-	private final static ResourceBundle resourceBundle = ResourceBundle.getBundle("resources");
+	static Locale locale = new Locale("ru", "RU");
+	private final static ResourceBundle resourceBundle = ResourceBundle.getBundle("resources", locale);
 
 	private MessageManager() {
 	}

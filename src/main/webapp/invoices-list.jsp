@@ -8,21 +8,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 
-<form>
-             <select id="language" name="language" onchange="submit()">
-                 <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
-                 <option value="nl" ${language == 'nl' ? 'selected' : ''}>Nederlands</option>
-                 <option value="es" ${language == 'es' ? 'selected' : ''}>Español</option>
-             </select>
-         </form>
+	<form method="POST" action="Controller">
+		<input type="hidden" name="command" value="invoices" /> 
+		<select	id="new_lang_loc" name="new_lang_loc" onchange="submit()">
+			<option value="US" ${lang_loc == 'US' ? 'selected' : ''}>English</option>
+			<option value="UA" ${lang_loc == 'UA' ? 'selected' : ''}>Ukrainian</option>
+			<option value="RU" ${lang_loc == 'RU' ? 'selected' : ''}>Russian</option>
+		</select>
+	</form>
 
-<h3 class="text-center">Invoices List</h3>
+	<h3 class="text-center">Invoices List</h3>
 
 <label for="username"><fmt:message key="login.label.username" />:</label>
 			<hr>
@@ -45,10 +46,10 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Status</th>
-						<th>Comments</th>
-						<th>Created</th>
-						<th>Total amount</th>
+						<th>${iStatus}</th>
+						<th>${iComments}</th>
+						<th>${iCreated}</th>
+						<th>${iTotalAmount}</th>
 					</tr>
 				</thead>
 				<tbody>
