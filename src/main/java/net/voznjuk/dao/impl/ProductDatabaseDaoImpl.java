@@ -15,9 +15,10 @@ public class ProductDatabaseDaoImpl implements ProductDao {
 	
 	private static final String INSERT_PROD = "INSERT INTO product (name, description, stock, price, product_status_id) VALUES ( ?, ?, ?, ?, ?);";
 	private static final String SELECT_PROD_BY_ID = "SELECT * FROM product WHERE id = ?;";
-	private static final String SELECT_ALL_PRODUCTS = "SELECT * FROM product;";
+	private static final String SELECT_ALL_PRODUCTS = "SELECT * FROM product WHERE (id LIKE ? or name LIKE ? or description LIKE ?) LIMIT ?, ?;";
 	private static final String UPDATE_PROD_BY_ID = "UPDATE product SET name = ?, description = ?, stock = ?, price = ?, product_status_id = ? WHERE id = ?;";
 	private static final String DELETE_PROD_BY_ID = "DELETE FROM product WHERE id = ?;";
+	private static final String SEARCH_PROD_BY_KEY = "SELECT * FROM product;";
 
 	public ProductDatabaseDaoImpl() {
 		// TODO Auto-generated constructor stub
@@ -59,15 +60,22 @@ public class ProductDatabaseDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public List<Product> getAll() {
+	public List<Product> getAll(int start, int ofset, String searchKey) {
 		List<Product> products = new ArrayList<>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet rs = null;
+		//searchKey = "very";
 		
 		try {
 			connection = JDBCUtils.getConnection();
 			preparedStatement = connection.prepareStatement(SELECT_ALL_PRODUCTS);
+			preparedStatement.setString(1, searchKey);
+			preparedStatement.setString(2, searchKey);
+			preparedStatement.setString(3, searchKey);
+			preparedStatement.setInt(4, start);
+			preparedStatement.setInt(5, ofset);
+			System.out.println(preparedStatement.toString());
 			rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
@@ -196,5 +204,40 @@ public class ProductDatabaseDaoImpl implements ProductDao {
 		}			
 		return rs;
 	}
+
+	@Override
+	public List<Product> searchListByKey(String key) {
+		List<Product> products = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(SEARCH_PROD_BY_KEY);
+			rs = preparedStatement.executeQuery();
+			
+			while (rs.next()) {
+				products.add(new Product( rs.getLong(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getFloat(5), rs.getInt(6)) );				
+			}			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+			e.printStackTrace(System.out);
+		} finally {
+			try {
+				rs.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//System.out.println(products.size());
+		return products;
+	}
+	
+
 
 }

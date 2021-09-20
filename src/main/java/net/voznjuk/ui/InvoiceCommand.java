@@ -58,13 +58,27 @@ public class InvoiceCommand implements ActionCommand {
 				page = "/Controller?command=invoice&ex=disp&id="+inv_id;
 				
 			} else {
+				if (logger.isDebugEnabled()) {
+					logger.debug("LINES request to generate list of all products " + inv_id);
+				}
+				int currentPage = 1;
+	            int recordsPerPage = 2;
+	            if(request.getParameter("currentPage") != null)
+	            	currentPage = Integer.parseInt(request.getParameter("currentPage"));
+	            
 				ProductDao productDAO = new ProductDatabaseDaoImpl();
 				List<Product> products = new ArrayList<>();
-				products = productDAO.getAll();
+				int totalNoProd = productDAO.getAll(0, 1000, "%").size();
+				int noOfPages = totalNoProd/recordsPerPage;
+				products = productDAO.getAll((currentPage-1) * recordsPerPage, recordsPerPage, "%very%");
+				System.out.println("Number of records: = " + products.size());
 				request.setAttribute("productList", products);
 				request.setAttribute("inv_id", inv_id);
+				request.setAttribute("noOfPages", noOfPages);
+				request.setAttribute("currentPage", currentPage);
 				//RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");
 				//dispatcher.forward(request, response);
+				
 				page = "/invaddline-form.jsp";			
 			}		
 			return page;
@@ -222,7 +236,36 @@ public class InvoiceCommand implements ActionCommand {
 			//System.out.println("Invoice ID after deletion " + inv_id);
 			page = "/Controller?command=invoice&ex=disp&id=" + inv_id;		
 		}
+		
+		if (request.getParameter("ex").equals("srch")) {
+			// Request to search in products
+			
+			String prod_id = request.getParameter("prod_id");
+			String inv_id = request.getParameter("inv_id");
+			String srch_key = request.getParameter("search_key");
+			
+			
+			if (logger.isDebugEnabled()) {
+				logger.debug("LINES request to add lines to " + inv_id);
+			}
+			
+
+				ProductDao productDAO = new ProductDatabaseDaoImpl();
+				List<Product> products = new ArrayList<>();
+				products = productDAO.searchListByKey(srch_key);
+				request.setAttribute("productList", products);
+				request.setAttribute("inv_id", inv_id);
+				//RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");
+				//dispatcher.forward(request, response);
+				page = "/invaddline-form.jsp";			
+		
+
+		}
+		
+		
 		return page;
 	}
+	
+	
 
 }

@@ -143,3 +143,199 @@
 2021-09-19 23:04:21 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 51 has been requested
 2021-09-19 23:04:22 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 51;
 2021-09-19 23:04:27 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 00:34:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-20 00:34:00 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@6bc31022
+2021-09-20 00:39:32 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:42:05 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:43:08 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:44:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:44:57 DEBUG InvoiceCommand:42 - LoginStage user Semen successfully get in with 3privileges
+2021-09-20 00:44:57 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 00:46:43 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:47:19 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:47:21 DEBUG InvoiceCommand:42 - LoginStage user Semen successfully get in with 3privileges
+2021-09-20 00:47:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 00:47:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-20 00:47:57 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:47:58 DEBUG InvoiceCommand:42 - LoginStage user Semen successfully get in with 3privileges
+2021-09-20 00:47:58 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 00:48:03 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 00:48:03 DEBUG InvoiceCommand:165 - INVOICE request to show lines for invoice 52
+2021-09-20 00:48:04 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 00:48:05 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 00:48:09 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 00:48:09 DEBUG InvoiceCommand:165 - INVOICE request to show lines for invoice 52
+2021-09-20 00:48:11 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 00:48:12 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 00:48:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 00:48:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-20 00:48:59 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@37e1c6c0
+2021-09-20 00:56:47 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-20 00:56:47 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@20472034
+2021-09-20 00:56:52 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 00:56:54 DEBUG InvoiceCommand:42 - LoginStage user Semen successfully get in with 3privileges
+2021-09-20 00:56:54 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 00:57:04 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 00:57:04 DEBUG InvoiceCommand:165 - INVOICE request to show lines for invoice 52
+2021-09-20 00:57:05 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 00:57:07 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 07:38:45 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 07:38:45 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 08:44:26 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 08:44:26 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 08:46:28 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 08:46:28 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:00:09 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:00:09 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:09:19 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:09:19 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:09:19 DEBUG InvoiceCommand:47 - LINES request to add product 2 to invoice 52
+2021-09-20 10:09:23 DEBUG InvoiceCommand:61 - ILDDAO request to add linecom.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (52, 2, 0, 15.76);
+2021-09-20 10:09:24 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:09:24 DEBUG InvoiceCommand:175 - INVOICE request to show lines for invoice 52
+2021-09-20 10:09:25 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 10:09:26 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 10:09:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:09:31 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:09:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:09:53 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:10:02 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:10:02 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:10:02 DEBUG InvoiceCommand:47 - LINES request to add product 4 to invoice 52
+2021-09-20 10:10:06 DEBUG InvoiceCommand:61 - ILDDAO request to add linecom.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (52, 4, 0, 102.17);
+2021-09-20 10:10:06 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:10:06 DEBUG InvoiceCommand:175 - INVOICE request to show lines for invoice 52
+2021-09-20 10:10:07 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 10:10:08 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 10:10:17 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:10:17 DEBUG InvoiceCommand:175 - INVOICE request to show lines for invoice 52
+2021-09-20 10:10:18 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 10:10:19 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 10:10:24 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 10:23:48 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-20 10:23:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 10:23:55 DEBUG InvoiceCommand:42 - LoginStage user Semen successfully get in with 3privileges
+2021-09-20 10:23:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 10:23:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:23:59 DEBUG InvoiceCommand:175 - INVOICE request to show lines for invoice 52
+2021-09-20 10:24:00 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 10:24:02 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 10:24:08 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:24:08 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:25:51 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:25:51 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:29:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:29:20 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:33:13 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:33:13 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 10:34:51 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 10:34:56 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:34:56 DEBUG InvoiceCommand:175 - INVOICE request to show lines for invoice 52
+2021-09-20 10:34:57 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 10:34:58 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 10:35:03 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 10:35:03 DEBUG InvoiceCommand:175 - INVOICE request to show lines for invoice 52
+2021-09-20 10:35:05 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 10:35:06 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 10:35:10 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 15:42:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-20 15:42:16 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@5a8ad6ef
+2021-09-20 15:42:22 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 15:42:24 DEBUG InvoiceCommand:42 - LoginStage user Semen successfully get in with 3privileges
+2021-09-20 15:42:24 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 15:42:34 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:42:34 DEBUG InvoiceCommand:175 - INVOICE request to show lines for invoice 52
+2021-09-20 15:42:35 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 15:42:36 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 15:42:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:42:42 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 15:46:05 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:46:05 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 15:46:05 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 15:48:52 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:48:52 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 15:48:52 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 15:51:29 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:51:29 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 15:51:29 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 15:53:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:53:59 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 15:53:59 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 15:57:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:57:59 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 15:57:59 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 15:58:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 15:58:42 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 15:58:42 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:03:03 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-20 16:03:03 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@25fd05b5
+2021-09-20 16:03:07 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 16:03:09 DEBUG InvoiceCommand:42 - LoginStage user Semen successfully get in with 3privileges
+2021-09-20 16:03:09 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 16:03:13 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:03:13 DEBUG InvoiceCommand:179 - INVOICE request to show lines for invoice 52
+2021-09-20 16:03:14 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 16:03:15 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 16:03:18 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:03:18 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:03:18 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:04:44 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:04:44 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:04:44 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:09:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:09:01 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:09:01 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:11:10 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:11:10 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:11:10 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:16:44 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:16:44 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:16:44 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:17:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:17:53 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:17:53 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:18:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:00 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:18:00 DEBUG InvoiceCommand:47 - LINES request to add product 2 to invoice 52
+2021-09-20 16:18:04 DEBUG InvoiceCommand:61 - ILDDAO request to add linecom.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (52, 2, 0, 15.76);
+2021-09-20 16:18:04 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:04 DEBUG InvoiceCommand:179 - INVOICE request to show lines for invoice 52
+2021-09-20 16:18:06 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 16:18:07 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 16:18:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:12 DEBUG InvoiceCommand:204 - LINES request to delete product 2 from invoice 52
+2021-09-20 16:18:16 DEBUG InvoiceCommand:215 - ILDDAO request to select invoice lines by KEYcom.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM invoice_has_product WHERE invoice_id = 52 AND product_id = 2;
+2021-09-20 16:18:20 DEBUG InvoiceCommand:131 - ILDDAO request to delete linecom.mysql.cj.jdbc.ClientPreparedStatement: DELETE FROM invoice_has_product WHERE invoice_id = 52 AND product_id = 2;
+2021-09-20 16:18:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:21 DEBUG InvoiceCommand:179 - INVOICE request to show lines for invoice 52
+2021-09-20 16:18:22 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 16:18:23 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 16:18:26 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:26 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:18:26 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 52
+2021-09-20 16:18:32 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:32 DEBUG InvoiceCommand:42 - LINES request to add lines to 52
+2021-09-20 16:18:32 DEBUG InvoiceCommand:47 - LINES request to add product 2 to invoice 52
+2021-09-20 16:18:36 DEBUG InvoiceCommand:61 - ILDDAO request to add linecom.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (52, 2, 0, 15.76);
+2021-09-20 16:18:36 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:36 DEBUG InvoiceCommand:179 - INVOICE request to show lines for invoice 52
+2021-09-20 16:18:37 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 16:18:39 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 16:18:45 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:45 DEBUG InvoiceCommand:110 - INVOICES request to create new invoice
+2021-09-20 16:18:48 DEBUG InvoiceCommand:99 - ILDDAO request to update linecom.mysql.cj.jdbc.ClientPreparedStatement: UPDATE invoice_has_product SET quantity = 1 WHERE invoice_id = 52 AND product_id = 4;
+2021-09-20 16:18:50 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:18:50 DEBUG InvoiceCommand:179 - INVOICE request to show lines for invoice 52
+2021-09-20 16:18:52 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 16:18:53 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 16:19:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:19:00 DEBUG InvoiceCommand:110 - INVOICES request to create new invoice
+2021-09-20 16:19:04 DEBUG InvoiceCommand:99 - ILDDAO request to update linecom.mysql.cj.jdbc.ClientPreparedStatement: UPDATE invoice_has_product SET quantity = 2 WHERE invoice_id = 52 AND product_id = 2;
+2021-09-20 16:19:06 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:19:06 DEBUG InvoiceCommand:179 - INVOICE request to show lines for invoice 52
+2021-09-20 16:19:07 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 16:19:08 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;
+2021-09-20 16:20:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 16:20:31 DEBUG InvoiceCommand:179 - INVOICE request to show lines for invoice 52
+2021-09-20 16:20:33 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 52 has been requested
+2021-09-20 16:20:34 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 52;

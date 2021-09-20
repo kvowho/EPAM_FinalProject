@@ -37,7 +37,7 @@ public class Controller extends HttpServlet {
 		String page = null;
 		ActionFactory client = new ActionFactory();
 		ActionCommand command = client.defineCommand(request);
-		//System.out.println("Action defined to" + command);
+		System.out.println("Action defined to " + command.toString());
 				
 		/*
 		 *
@@ -48,7 +48,7 @@ public class Controller extends HttpServlet {
 		Locale locale = Locale.getDefault();
 		String lng = locale.getCountry();
 		String new_lng = request.getParameter("new_lang_loc");
-		System.out.println("Localization: session.par=" + session.getAttribute("lang_loc").toString() + "form selected par=" + request.getParameter("new_lang_loc"));
+		//System.out.println("Localization: session.par=" + session.getAttribute("lang_loc").toString() + "form selected par=" + request.getParameter("new_lang_loc"));
 		
 		if (request.getParameter("new_lang_loc") != null) {
 			session.setAttribute("lang_loc", request.getParameter("new_lang_loc"));

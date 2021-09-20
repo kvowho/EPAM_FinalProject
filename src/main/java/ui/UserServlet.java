@@ -79,7 +79,7 @@ public class UserServlet extends HttpServlet {
 	
 	private void usersList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<User> users = new ArrayList<>();
-		users = userDAO.getAll();
+		users = userDAO.getAll( 0, 1000, "");
 		User user = userDAO.getByLogin("ivan");
 		System.out.println(user.getPassword() );				
 		request.setAttribute("usersList", users);

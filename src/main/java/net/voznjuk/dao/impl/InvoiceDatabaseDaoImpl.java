@@ -65,7 +65,7 @@ public class InvoiceDatabaseDaoImpl implements InvoiceDao {
 	}
 
 	@Override
-	public List<Invoice> getAll() {
+	public List<Invoice> getAll(int start, int ofset, String key) {
 		List<Invoice> invoices = new ArrayList<>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;

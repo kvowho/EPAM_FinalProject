@@ -80,7 +80,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	}
 
 	@Override
-	public List<User> getAll() {
+	public List<User> getAll( int start, int ofset, String key ) {
 		List<User> users = new ArrayList<>();
 		
 		try ( Connection connection = getConnection();

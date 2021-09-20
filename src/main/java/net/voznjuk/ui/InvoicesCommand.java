@@ -20,7 +20,7 @@ public class InvoicesCommand implements ActionCommand {
 		InvoiceDao invoiceDAO = new InvoiceDatabaseDaoImpl();
 		//ProductToInvoiceDao pti = new ProdToInvDatabaseDaoImpl();
 		List<Invoice> invoices = new ArrayList<>();
-		invoices = invoiceDAO.getAll();
+		invoices = invoiceDAO.getAll(0, 1000, "");
 		request.setAttribute("invoiceList", invoices);
 		//System.out.println(products.size());
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");

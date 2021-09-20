@@ -17,7 +17,7 @@ public interface UnifiedDao<T extends UnifiedModel> {
 	
 	public T getById(Long id);
 	
-	public List<T> getAll();
+	public List<T> getAll(int start, int ofset, String key);
 	
 	public long add(T model);
 	

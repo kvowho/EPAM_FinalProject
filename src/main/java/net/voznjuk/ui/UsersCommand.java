@@ -17,7 +17,7 @@ public class UsersCommand implements ActionCommand {
 		String page = null;
 		UserDao userDAO = new UserDatabaseDaoImpl();
 		List<User> users = new ArrayList<>();
-		users = userDAO.getAll();
+		users = userDAO.getAll( 0, 1000, "");
 		User user = userDAO.getByLogin("ivan");
 		System.out.println(user.getPassword() );				
 		request.setAttribute("usersList", users);
