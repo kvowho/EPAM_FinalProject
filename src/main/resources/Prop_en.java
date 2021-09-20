@@ -29,6 +29,13 @@ public class Prop_en extends ListResourceBundle {
 			{ "iYouAre", "You are" },
 			{ "iYourRole", "and your role is" },
 			{ "iInvNum", "Invoice #" },
+			{ "iInvoiceList", "Invoice list" },
+			{ "iAddInv", "Add new invoice" },
+			{ "iEdit", "Edit" },
+			{ "iBackToInvEdit", "Back to invoice form" },
+			{ "iProdToInvAddTitle", "Product List to add to invoice #" },
+			{ "iSearch", "Search" },
+			{ "iPrice", "Price" },
 			{ "OtherMessage", "Ciao." } 
 	};
 

@@ -88,3 +88,22 @@
 	</div>
 </body>
 </html>
+
+
+
+
+
+	<form method="POST" action="Controller">
+		<input type="hidden" name="command" value="invoices" /> 
+		<select	id="new_lang_loc" name="new_lang_loc" onchange="submit()">
+			<option value="US" ${lang_loc == 'US' ? 'selected' : ''}>English</option>
+			<option value="UA" ${lang_loc == 'UA' ? 'selected' : ''}>Ukrainian</option>
+			<option value="RU" ${lang_loc == 'RU' ? 'selected' : ''}>Russian</option>
+		</select>
+	</form>
+
+
+
+
+
+

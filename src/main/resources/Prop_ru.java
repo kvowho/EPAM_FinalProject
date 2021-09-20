@@ -29,6 +29,13 @@ public class Prop_ru extends ListResourceBundle {
 			{ "iYouAre", "Ваше имя" },
 			{ "iYourRole", "ваши полномочия" },
 			{ "iInvNum", "Счет №" },
+			{ "iInvoiceList", "Список счетов" },
+			{ "iAddInv", "Создать новый счет" },
+			{ "iEdit", "Редактировать" },
+			{ "iBackToInvEdit", "Вернуться на форму счета" },
+			{ "iProdToInvAddTitle", "Список продуктов для добавления в счет №" },
+			{ "iSearch", "Поиск" },
+			{ "iPrice", "Цена" },
 			{ "OtherMessage", "Пока" } 
 	};
 

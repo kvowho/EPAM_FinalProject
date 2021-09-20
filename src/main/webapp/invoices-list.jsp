@@ -12,31 +12,44 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- Bootstrap CSS (jsDelivr CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- Bootstrap Bundle JS (jsDelivr CDN) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-
-	<form method="POST" action="Controller">
+</head>
+<body>
+	<div class="container">
+		<div>
+			<a class="btn btn-primary disabled" href="Controller?command=logout"
+				role="button" aria-disabled="false">${iLogout}</a> ${iYouAre}
+			<c:out value="${sessionScope.user}" />
+			${iYourRole}
+			<c:out value="${sessionScope.role}" />
+		</div>
+		<div>
+			<form method="POST" action="Controller">
 		<input type="hidden" name="command" value="invoices" /> 
 		<select	id="new_lang_loc" name="new_lang_loc" onchange="submit()">
-			<option value="US" ${lang_loc == 'US' ? 'selected' : ''}>English</option>
-			<option value="UA" ${lang_loc == 'UA' ? 'selected' : ''}>Ukrainian</option>
-			<option value="RU" ${lang_loc == 'RU' ? 'selected' : ''}>Russian</option>
-		</select>
-	</form>
+					<option value="US" ${lang_loc == 'US' ? 'selected' : ''}>English</option>
+					<option value="UA" ${lang_loc == 'UA' ? 'selected' : ''}>Ukrainian</option>
+					<option value="RU" ${lang_loc == 'RU' ? 'selected' : ''}>Russian</option>
+				</select>
+			</form>
+		</div>
 
-	<h3 class="text-center">Invoices List</h3>
+		<hr>
 
-<label for="username"><fmt:message key="login.label.username" />:</label>
+	<h3 class="text-center">${iInvoiceList}</h3>
+
 			<hr>
-			<a href="Controller?command=logout">Logout</a>
 			
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=new" class="btn btn-success">Add New Invoice</a>
+				<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=new" class="btn btn-success">${iAddInv}</a>
 			</div>
 			
-			<c:out value="${sessionScope.role}"/>
-			<c:out value="${sessionScope.user}"/>
-			
+
 			<br>
 
 
@@ -61,9 +74,10 @@
 							<td><c:out value="${invoice.status}" /></td>
 							<td><c:out value="${invoice.comments}" /></td>
 							<td><c:out value="${invoice.date}" /></td>
-							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${invoice.id}' />">Edit</a>
+							<td></td>
+							<td><a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=disp&id=<c:out value='${invoice.id}' />">${iEdit}</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=deli&id=<c:out value='${invoice.id}' />">Delete</a></td>
+								href="<%=request.getContextPath()%>/Controller?command=invoice&ex=deli&id=<c:out value='${invoice.id}' />">${iDelete}</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->
