@@ -22,6 +22,14 @@
 			User name ${u_name}, role ${role}
 			
 			<br>
+			
+			<form name="InvoiceLineUpdate" method="POST" action="Controller">
+								<input type="hidden" name="command" value="invoice" />
+								<input type="hidden" name="ex" value="addl" />
+								<input type="hidden" name="id" value="${inv_id}" />
+								<input type="text" class="form-control" id="status" name="search_word" placeholder="search_word">
+								<button type="submit" class="btn btn-primary">Search</button>
+							</form>
 
 
 

@@ -65,12 +65,20 @@ public class InvoiceCommand implements ActionCommand {
 	            int recordsPerPage = 2;
 	            if(request.getParameter("currentPage") != null)
 	            	currentPage = Integer.parseInt(request.getParameter("currentPage"));
+	            String key = "";
+	            String search_word = request.getParameter("search_word");
+	            if ( search_word != null && !search_word.equals("") ) {
+	            	key = "%" + search_word + "%";
+	            } else {
+	            	key = "%";
+	            }
+	            
 	            
 				ProductDao productDAO = new ProductDatabaseDaoImpl();
 				List<Product> products = new ArrayList<>();
-				int totalNoProd = productDAO.getAll(0, 1000, "%").size();
+				int totalNoProd = productDAO.getAll(0, 1000, key).size();
 				int noOfPages = totalNoProd/recordsPerPage;
-				products = productDAO.getAll((currentPage-1) * recordsPerPage, recordsPerPage, "%very%");
+				products = productDAO.getAll((currentPage-1) * recordsPerPage, recordsPerPage, key);
 				System.out.println("Number of records: = " + products.size());
 				request.setAttribute("productList", products);
 				request.setAttribute("inv_id", inv_id);
