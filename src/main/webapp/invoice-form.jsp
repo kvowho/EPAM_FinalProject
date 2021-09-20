@@ -18,11 +18,11 @@
 		<div>
 			<a class="btn btn-primary"
 				href="<%=request.getContextPath()%>/Controller?command=invoices"
-				class="btn btn-success" " role="button">Back to invoices list</a> 
+				class="btn btn-success" " role="button">${iBackToInvList}</a> 
 			<a class="btn btn-primary disabled" href="Controller?command=logout"
-				role="button" aria-disabled="false">Logout</a> You are
+				role="button" aria-disabled="false">${iLogout}</a> ${iYouAre}
 			<c:out value="${sessionScope.user}" />
-			under role
+			${iYourRole}
 			<c:out value="${sessionScope.role}" />
 		</div>
 		<div>
@@ -39,9 +39,8 @@
 		</div>
 
 		<hr>
-		 >>>>> ${HelloMessage}
 
-		<h3 class="text-center">Invoice N ${invoice.id}</h3>
+		<h3 class="text-center">${iInvNum} ${invoice.id}</h3>
 
 		<br>
 
@@ -51,11 +50,11 @@
 			<input type="hidden" name="id" value="${invoice.id}" />
 			<div class="form-row align-items-center">
 				<div class="col-sm-3 my-1">
-					<label class="sr-only" for="status">Status</label> 
+					<label class="sr-only" for="status">${iStatus}</label> 
 					<input type="text" class="form-control" id="status" name="status" placeholder="status" value="${invoice.status}">
 				</div>
 				<div class="col-sm-3 my-1">
-					<label class="sr-only" for="description">Description</label>
+					<label class="sr-only" for="description">${iDescription}</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<div class="input-group-text">@</div>
@@ -64,7 +63,7 @@
 					</div>
 				</div>
 				<div class="col-auto my-1">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary">${iSubmit}</button>
 				</div>
 			</div>
 		</form>
@@ -99,13 +98,13 @@
 								<input type="hidden" name="id" value="${invoice.id}" />
 								<input type="hidden" name="prod_id" value="${invoiceLine.product.id}" />
 								<input type="text" class="form-control" id="status" name="quantity" placeholder="quantity" value="${invoiceLine.quantity}">
-								<button type="submit" class="btn btn-primary">Update</button>
+								<button type="submit" class="btn btn-primary">${iUpdate}</button>
 							</form>
 						</td>
 						<td><c:out value="${invoiceLine.price}" /></td>
 						<td>
 
-							<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=dell&inv_id=<c:out value='${invoice.id}'/>&prod_id=<c:out value='${invoiceLine.product.id}'/>">Delete</a></td>
+							<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=dell&inv_id=<c:out value='${invoice.id}'/>&prod_id=<c:out value='${invoiceLine.product.id}'/>">${iDelete}</a></td>
 					</tr>
 				</c:forEach>
 				<!-- } -->
@@ -116,7 +115,7 @@
 		<div class="container text-left">
 			<a
 				href="<%=request.getContextPath()%>/Controller?command=invoice&ex=addl&inv_id=<c:out value='${invoice.id}' />"
-				class="btn btn-success">Add product to invoice</a>
+				class="btn btn-success">${iAddProdToInv}</a>
 		</div>
 
 	</div>

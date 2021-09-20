@@ -445,3 +445,11 @@
 2021-09-20 19:16:57 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 51
 2021-09-20 19:16:58 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 51 has been requested
 2021-09-20 19:16:59 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 51;
+2021-09-20 19:39:50 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 19:39:50 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 51
+2021-09-20 19:39:52 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 51 has been requested
+2021-09-20 19:39:53 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 51;
+2021-09-20 19:40:04 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 19:40:04 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 51
+2021-09-20 19:40:05 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 51 has been requested
+2021-09-20 19:40:07 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 51;

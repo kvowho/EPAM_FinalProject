@@ -19,6 +19,16 @@ public class Prop_ru extends ListResourceBundle {
 			{ "iProdStockNum", "Складской остаток" },
 			{ "iProdInvNum", "Количество" },
 			{ "iProdPriceInInv", "Цена по счету" },
+			{ "iAddProdToInv", "Добавить продукт" },
+			{ "iDelete", "Удалить" },
+			{ "iUpdate", "Обновить" },
+			{ "iSubmit", "ОК" },
+			{ "iDescription", "Описание" },
+			{ "iBackToInvList", "Вернуться к списку счетов" },
+			{ "iLogout", "Выйти" },
+			{ "iYouAre", "Ваше имя" },
+			{ "iYourRole", "ваши полномочия" },
+			{ "iInvNum", "Счет №" },
 			{ "OtherMessage", "Пока" } 
 	};
 
