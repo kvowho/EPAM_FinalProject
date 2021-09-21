@@ -896,3 +896,132 @@
 2021-09-20 22:41:31 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
 2021-09-20 22:41:33 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
 2021-09-20 22:41:35 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 22:45:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 22:45:16 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-20 22:45:18 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-20 22:45:19 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-20 22:45:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 22:45:31 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-20 22:45:31 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-20 22:45:41 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-20 22:45:41 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-20 22:45:42 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-20 22:45:43 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-20 22:45:46 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-20 22:51:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-20 22:51:01 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@4076f735
+2021-09-20 22:51:07 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 22:51:09 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-20 22:51:09 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-20 22:51:25 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-20 22:51:29 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 22:51:30 DEBUG InvoiceCommand:42 - LoginStage user ivan successfully get in with 1privileges
+2021-09-20 22:51:30 DEBUG InvoiceCommand:15 - ActionFactory requested command is users
+2021-09-20 22:51:41 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-20 22:51:45 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 22:51:47 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-20 22:51:47 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-20 22:57:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-20 22:57:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-20 22:57:18 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-20 22:57:18 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-20 22:57:30 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 08:13:09 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 08:13:13 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 08:13:15 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 08:13:15 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:15:57 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 08:16:05 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 08:16:07 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 08:16:07 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:18:52 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 08:19:04 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 08:19:11 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 08:20:06 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 08:20:07 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 08:20:07 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:20:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:20:25 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:20:41 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 08:22:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 08:22:57 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:25:41 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 08:25:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 08:25:57 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:38:57 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 08:39:06 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:11:56 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:15:11 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 09:15:15 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 09:15:16 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 09:15:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:15:25 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:29:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 09:29:59 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 
+2021-09-21 09:30:10 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-21 09:30:10 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@20cc3d14
+2021-09-21 09:30:14 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 09:30:16 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 09:30:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:30:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:31:47 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:31:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:32:05 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:32:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 09:33:02 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 09:33:04 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 09:33:04 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:33:19 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 09:33:21 DEBUG InvoiceCommand:42 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 09:33:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:33:38 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:39:58 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:40:14 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:40:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:43:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:43:14 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:43:23 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:43:32 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:43:39 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:43:50 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:44:07 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 09:53:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 09:59:56 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 10:00:02 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:01:11 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 10:01:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:01:37 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:01:46 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:01:52 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:01:56 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 10:02:02 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 10:02:05 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:02:15 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:02:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 10:02:36 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 10:10:37 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 10:10:41 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 10:10:42 DEBUG InvoiceCommand:42 - LoginStage user ivan successfully get in with 1privileges
+2021-09-21 10:10:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is users
+2021-09-21 11:39:57 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 11:40:00 DEBUG InvoiceCommand:43 - LoginStage user ivan successfully get in with 1privileges
+2021-09-21 11:40:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is users
+2021-09-21 11:40:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 11:40:18 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 11:40:20 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 11:40:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 11:41:39 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 11:41:46 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 11:41:56 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 11:42:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 11:42:03 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with 2privileges
+2021-09-21 11:42:03 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 11:44:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 11:44:26 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 11:44:30 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 11:44:34 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with Cashierprivileges
+2021-09-21 11:44:34 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 11:54:33 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 11:54:39 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 11:54:43 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with Storekeeperprivileges
+2021-09-21 11:54:43 DEBUG InvoiceCommand:15 - ActionFactory requested command is products

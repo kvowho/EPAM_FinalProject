@@ -24,6 +24,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	private static final String SELECT_ALL_USERS = "SELECT * FROM employee;";
 	private static final String UPDATE_USER_BY_ID = "UPDATE employee SET f_name = ?, s_name = ?, login = ?, password = ?, credentials_id = ? WHERE id = ?;";
 	private static final String DELETE_USER_BY_ID = "DELETE FROM employee WHERE id = ?;";
+	private static final String GET_AUTH_BY_ROLE = "SELECT name FROM credentials WHERE id = ?;";
 	
 	protected Connection getConnection() {
 		Connection connection = null;
@@ -44,7 +45,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	@Override
 	public User getById(Long id) {
 		User user = new User();
-		System.out.println(" **** getById mothod ****");
+		//System.out.println(" **** getById mothod ****");
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -270,6 +271,42 @@ public class UserDatabaseDaoImpl implements UserDao{
 			
 		}			
 		return status;
+	}
+
+	@Override
+	public String getAuthByRole(Long id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		String result = "";
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(GET_AUTH_BY_ROLE);
+			preparedStatement.setLong(1, id);
+			//System.out.println(preparedStatement.toString());
+			rs = preparedStatement.executeQuery();
+			if(rs.next()){
+				result= rs.getString(1);
+			}
+			
+//			System.out.println(user.toString());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}	
+		return result;
 	}
 
 }

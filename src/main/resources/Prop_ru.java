@@ -36,6 +36,11 @@ public class Prop_ru extends ListResourceBundle {
 			{ "iProdToInvAddTitle", "Список продуктов для добавления в счет №" },
 			{ "iSearch", "Поиск" },
 			{ "iPrice", "Цена" },
+			{ "iProdList", "Список товаров" },
+			{ "iProdNew", "Добавить новый товар" },
+			{ "iBackToProdList", "К списку товаров" },
+			{ "iProdEdit", "Редактировать" },
+			{ "iProdAdd", "Добавить новый товар" },
 			{ "OtherMessage", "Пока" } 
 	};
 

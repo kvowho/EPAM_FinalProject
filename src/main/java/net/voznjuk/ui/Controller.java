@@ -63,20 +63,6 @@ public class Controller extends HttpServlet {
 		}
 			
 
-//		if (new_lng != null || !new_lng.equals(session.getAttribute("lang_loc"))) {
-//			System.out.println("Lan Not Match. New is " + new_lng + " old one is " + session.getAttribute("lang_loc").toString());			
-//		}
-
-//		if (session.getAttribute("lang_loc") == null) {
-//			lng = "US";
-//			session.setAttribute("lang_loc", lng);
-//			//System.out.println("Attr lang_loc = NULL");
-//		} else {
-//			//System.out.println("Attr lang_loc = NOT NULL" + session.getAttribute("lang_loc").toString());
-//			System.out.println("Selected lang = " + new_lng);
-//			// lng = (String) session.getAttribute("language");
-//		}
-
 		if (session.getAttribute("lang_loc").equals("UA"))
 			locale = new Locale("uk", "UA");
 		else if (session.getAttribute("lang_loc").equals("RU"))

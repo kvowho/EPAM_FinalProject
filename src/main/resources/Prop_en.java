@@ -36,6 +36,10 @@ public class Prop_en extends ListResourceBundle {
 			{ "iProdToInvAddTitle", "Product List to add to invoice #" },
 			{ "iSearch", "Search" },
 			{ "iPrice", "Price" },
+			{ "iProdList", "Product List" },
+			{ "iBackToProdList", "Back to product list" },
+			{ "iProdEdit", " Edit product" },
+			{ "iProdAdd", "Add new product" },
 			{ "OtherMessage", "Ciao." } 
 	};
 

@@ -37,9 +37,10 @@ public class LoginCommand implements ActionCommand {
 		HttpSession session = request.getSession();
 		session.setAttribute("role", user.getRole());
 		session.setAttribute("user", login);
+		session.setAttribute("role_name", userDAO.getAuthByRole(Long.parseLong(user.getRole())));
 		
 		if (logger.isDebugEnabled()) {
-			logger.debug("LoginStage user " + login + " successfully get in with " + user.getRole() + "privileges");
+			logger.debug("LoginStage user " + login + " successfully get in with " + userDAO.getAuthByRole(Long.parseLong(user.getRole())) + " privileges");
 		}
 		
 		

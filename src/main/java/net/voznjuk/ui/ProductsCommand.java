@@ -21,7 +21,7 @@ public class ProductsCommand implements ActionCommand {
 		String page = null;
 		ProductDao productDAO = new ProductDatabaseDaoImpl();
 		List<Product> products = new ArrayList<>();
-		products = productDAO.getAll( 0, 1000, "");
+		products = productDAO.getAll( 0, 1000, "%");
 		request.setAttribute("productList", products);
 		System.out.println(products.size());
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("users-list.jsp");
