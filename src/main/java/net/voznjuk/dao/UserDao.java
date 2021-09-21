@@ -9,5 +9,7 @@ public interface UserDao extends UnifiedDao<User>{
 	public boolean delById(Long id);
 	
 	public String getAuthByRole(Long id);
+	
+	public boolean checkLoginPassword(String login, String password);
 
 }

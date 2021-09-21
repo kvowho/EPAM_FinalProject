@@ -26,7 +26,7 @@
 			<a class="btn btn-primary" href="Controller?command=logout" role="button" aria-disabled="false">${iLogout}</a> ${iYouAre}
 			<c:out value="${sessionScope.user}" />
 			${iYourRole}
-			<c:out value="${sessionScope.role}" />
+			<c:out value="${sessionScope.role_name}" />
 		</div>
 		<div>
 			<form method="POST" action="Controller">
@@ -93,13 +93,17 @@
 						value="<c:out value='${product.price}' />" class="form-control"
 						name="price">
 				</fieldset>
-				<fieldset class="form-group">
-					<label>${iStatus}</label> <input type="text"
-						value="<c:out value='${product.availabilityStatus}' />" class="form-control"
-						name="status">
-				</fieldset>
+					<fieldset class="form-group">
+						<label>${iStatus}</label> 
+						 <select id="status"
+							name="status" class="form-control"">
+							<option value="1" ${product.availabilityStatus == '1' ? 'selected' : ''}>On stock</option>
+							<option value="2" ${product.availabilityStatus == '2' ? 'selected' : ''}>On the way</option>
+							<option value="3" ${product.availabilityStatus == '3' ? 'selected' : ''}>Not available</option>
+						</select>
+					</fieldset>
 
-				<button type="submit" class="btn btn-success">${iSubmit}</button>
+					<button type="submit" class="btn btn-success">${iSubmit}</button>
 				</form>
 			</div>
 		</div>

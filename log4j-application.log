@@ -1025,3 +1025,286 @@
 2021-09-21 11:54:39 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
 2021-09-21 11:54:43 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with Storekeeperprivileges
 2021-09-21 11:54:43 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 12:53:14 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-21 12:53:14 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@4067dd93
+2021-09-21 12:53:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 12:53:25 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with Storekeeper privileges
+2021-09-21 12:53:25 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 12:53:39 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:53:48 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:53:50 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 12:53:56 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:54:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:54:03 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 12:54:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:54:19 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:54:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 12:54:28 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:54:32 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:54:34 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 12:55:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:55:28 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:55:30 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 12:56:43 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:56:48 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 12:56:49 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:00:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 13:00:16 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:01:39 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 13:01:44 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 13:01:46 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:02:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:02:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:02:46 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 13:03:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 13:03:33 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:03:46 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:03:52 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:03:56 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with Storekeeper privileges
+2021-09-21 13:03:56 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:04:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 13:05:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 13:05:14 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:09:08 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:09:13 DEBUG InvoiceCommand:43 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 13:09:13 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:09:58 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:09:58 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:10:00 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:10:01 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:10:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:10:20 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:10:20 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:11:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:11:01 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:11:01 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:15:02 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:15:02 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:15:03 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:15:05 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:16:50 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:16:50 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:16:50 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:17:08 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:17:08 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:17:09 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:17:10 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:17:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:18:26 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:18:26 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:18:27 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:18:28 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:18:33 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:18:33 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:18:33 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:18:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:18:42 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:18:44 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:18:45 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:25:26 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:25:26 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:25:26 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:25:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:25:31 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:25:32 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:25:34 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:25:52 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:25:52 DEBUG InvoiceCommand:212 - LINES request to delete product 4 from invoice 53
+2021-09-21 13:25:56 DEBUG InvoiceCommand:215 - ILDDAO request to select invoice lines by KEYcom.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM invoice_has_product WHERE invoice_id = 53 AND product_id = 4;
+2021-09-21 13:26:00 DEBUG InvoiceCommand:131 - ILDDAO request to delete linecom.mysql.cj.jdbc.ClientPreparedStatement: DELETE FROM invoice_has_product WHERE invoice_id = 53 AND product_id = 4;
+2021-09-21 13:26:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:26:01 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:26:02 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:26:03 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:26:18 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:26:37 DEBUG InvoiceCommand:15 - ActionFactory requested command is null
+2021-09-21 13:26:37 ERROR InvoiceCommand:23 - ActionFactory wrong or empty "action" net.voznjuk.ui.EmptyCommand@6053739c
+2021-09-21 13:26:43 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:26:48 DEBUG InvoiceCommand:43 - LoginStage user Semen successfully get in with Senior cashier privileges
+2021-09-21 13:26:48 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:26:58 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:26:58 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:27:00 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:27:01 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:37:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:37:54 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:37:54 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:37:56 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:37:57 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:38:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:43:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:43:21 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:43:22 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:43:23 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:43:25 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:44:38 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:44:38 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:44:40 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:44:41 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:44:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:44:48 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:44:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:44:59 DEBUG InvoiceCommand:43 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 13:44:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:48:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:48:59 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:49:00 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:49:02 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:49:03 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:49:09 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:49:13 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:49:18 DEBUG InvoiceCommand:43 - LoginStage user Semen successfully get in with Senior cashier privileges
+2021-09-21 13:49:18 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:49:33 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:49:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:49:47 DEBUG InvoiceCommand:43 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 13:49:47 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:49:54 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:49:54 DEBUG InvoiceCommand:145 - INVOICES request to create new invoice
+2021-09-21 13:49:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:49:55 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 54
+2021-09-21 13:49:57 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 54 has been requested
+2021-09-21 13:49:58 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 54;
+2021-09-21 13:50:08 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:50:19 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:50:19 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:50:20 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:50:21 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:50:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:53:47 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:53:47 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:53:49 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:53:50 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:55:02 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:55:07 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:55:07 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:55:08 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:55:10 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:55:20 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:55:24 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:55:28 DEBUG InvoiceCommand:43 - LoginStage user Semen successfully get in with Senior cashier privileges
+2021-09-21 13:55:28 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:55:36 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:55:36 DEBUG InvoiceCommand:174 - INVOICES request to delete invoice
+2021-09-21 13:55:37 DEBUG InvoiceCommand:185 - ILDDAO request to delete linecom.mysql.cj.jdbc.ClientPreparedStatement: DELETE FROM invoice WHERE id = 54;
+2021-09-21 13:55:38 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:55:47 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:55:47 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:55:49 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:55:50 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:55:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:55:53 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:55:53 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:55:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:55:59 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:55:59 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:56:05 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:05 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:56:05 DEBUG InvoiceCommand:47 - LINES request to add product 6 to invoice 53
+2021-09-21 13:56:10 DEBUG InvoiceCommand:61 - ILDDAO request to add linecom.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (53, 6, 0, 10000.0);
+2021-09-21 13:56:10 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:10 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:56:12 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:56:13 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:56:21 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:21 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:56:21 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:56:30 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:30 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:56:30 DEBUG InvoiceCommand:62 - LINES request to generate list of all products 53
+2021-09-21 13:56:37 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:37 DEBUG InvoiceCommand:42 - LINES request to add lines to 53
+2021-09-21 13:56:37 DEBUG InvoiceCommand:47 - LINES request to add product 5 to invoice 53
+2021-09-21 13:56:41 DEBUG InvoiceCommand:61 - ILDDAO request to add linecom.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO invoice_has_product (invoice_id, product_id, quantity, price) VALUES (53, 5, 0, 56.0);
+2021-09-21 13:56:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:42 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:56:43 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:56:45 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:56:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:53 DEBUG InvoiceCommand:118 - INVOICES request to create new invoice
+2021-09-21 13:56:57 DEBUG InvoiceCommand:99 - ILDDAO request to update linecom.mysql.cj.jdbc.ClientPreparedStatement: UPDATE invoice_has_product SET quantity = 1 WHERE invoice_id = 53 AND product_id = 5;
+2021-09-21 13:56:59 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:56:59 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:57:01 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:57:02 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:57:08 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:57:08 DEBUG InvoiceCommand:118 - INVOICES request to create new invoice
+2021-09-21 13:57:12 DEBUG InvoiceCommand:99 - ILDDAO request to update linecom.mysql.cj.jdbc.ClientPreparedStatement: UPDATE invoice_has_product SET quantity = 10 WHERE invoice_id = 53 AND product_id = 6;
+2021-09-21 13:57:14 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoice
+2021-09-21 13:57:14 DEBUG InvoiceCommand:187 - INVOICE request to show lines for invoice 53
+2021-09-21 13:57:16 DEBUG InvoiceCommand:156 - ILDDAO lines for invoice : 53 has been requested
+2021-09-21 13:57:17 DEBUG InvoiceCommand:174 - ILDDAO request for the invoice linescom.mysql.cj.jdbc.ClientPreparedStatement: SELECT  p.*, l.* FROM invoice_has_product l JOIN product p ON l.product_id = p.id WHERE l.invoice_id = 53;
+2021-09-21 13:58:13 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:58:44 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:58:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:58:58 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with Storekeeper privileges
+2021-09-21 13:58:58 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 13:59:06 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:59:15 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:59:19 DEBUG InvoiceCommand:43 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 13:59:19 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:59:24 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 13:59:34 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 13:59:38 DEBUG InvoiceCommand:43 - LoginStage user Semen successfully get in with Senior cashier privileges
+2021-09-21 13:59:38 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 13:59:45 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 14:42:15 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 14:42:25 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 14:42:28 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 14:42:33 DEBUG InvoiceCommand:43 - LoginStage user Semen successfully get in with Senior cashier privileges
+2021-09-21 14:42:33 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 14:42:39 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 14:42:53 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 16:27:45 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 16:27:50 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:27:55 DEBUG InvoiceCommand:43 - LoginStage user piter successfully get in with Storekeeper privileges
+2021-09-21 16:27:55 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 16:28:07 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 16:38:29 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:38:36 DEBUG LoginCommand:44 - LoginStage user Semen successfully get in with Senior cashier privileges
+2021-09-21 16:38:36 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 16:40:50 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 16:40:54 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:41:01 DEBUG LoginCommand:44 - LoginStage user Semen successfully get in with Senior cashier privileges
+2021-09-21 16:41:01 DEBUG LoginCommand:45 - LoginStage USER password check false
+2021-09-21 16:41:01 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 16:42:49 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 16:42:54 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:43:01 DEBUG LoginCommand:44 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 16:43:01 DEBUG LoginCommand:45 - LoginStage USER password check false
+2021-09-21 16:43:01 DEBUG LoginCommand:73 - LoginStage PAGE after selection andy
+2021-09-21 16:46:31 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:46:38 DEBUG LoginCommand:44 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 16:46:38 DEBUG LoginCommand:45 - LoginStage USER password check false
+2021-09-21 16:46:38 DEBUG LoginCommand:73 - LoginStage PAGE after selection null
+2021-09-21 16:47:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:47:18 DEBUG LoginCommand:44 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 16:47:18 DEBUG LoginCommand:45 - LoginStage USER password check false
+2021-09-21 16:47:18 DEBUG LoginCommand:73 - LoginStage PAGE after selection null
+2021-09-21 16:47:42 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:48:29 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:48:35 DEBUG LoginCommand:44 - LoginStage user piter successfully get in with Storekeeper privileges
+2021-09-21 16:48:35 DEBUG LoginCommand:45 - LoginStage USER password check false
+2021-09-21 16:48:35 DEBUG LoginCommand:73 - LoginStage PAGE after selection null
+2021-09-21 16:48:52 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:48:58 DEBUG LoginCommand:44 - LoginStage user piter successfully get in with Storekeeper privileges
+2021-09-21 16:48:58 DEBUG LoginCommand:45 - LoginStage USER password check true
+2021-09-21 16:48:58 DEBUG LoginCommand:73 - LoginStage PAGE after selection /Controller?command=products
+2021-09-21 16:48:58 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 16:49:08 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 16:49:12 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 16:49:15 DEBUG InvoiceCommand:15 - ActionFactory requested command is product
+2021-09-21 16:49:18 DEBUG InvoiceCommand:15 - ActionFactory requested command is products
+2021-09-21 16:49:23 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 16:49:45 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:49:51 DEBUG LoginCommand:44 - LoginStage user semen successfully get in with Senior cashier privileges
+2021-09-21 16:49:51 DEBUG LoginCommand:45 - LoginStage USER password check true
+2021-09-21 16:49:51 DEBUG LoginCommand:73 - LoginStage PAGE after selection /Controller?command=invoices
+2021-09-21 16:49:51 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 16:50:00 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout
+2021-09-21 16:50:17 DEBUG InvoiceCommand:15 - ActionFactory requested command is Login
+2021-09-21 16:50:22 DEBUG LoginCommand:44 - LoginStage user andy successfully get in with Cashier privileges
+2021-09-21 16:50:22 DEBUG LoginCommand:45 - LoginStage USER password check true
+2021-09-21 16:50:22 DEBUG LoginCommand:73 - LoginStage PAGE after selection /Controller?command=invoices
+2021-09-21 16:50:22 DEBUG InvoiceCommand:15 - ActionFactory requested command is invoices
+2021-09-21 16:50:28 DEBUG InvoiceCommand:15 - ActionFactory requested command is logout

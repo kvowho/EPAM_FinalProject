@@ -25,6 +25,7 @@ public class UserDatabaseDaoImpl implements UserDao{
 	private static final String UPDATE_USER_BY_ID = "UPDATE employee SET f_name = ?, s_name = ?, login = ?, password = ?, credentials_id = ? WHERE id = ?;";
 	private static final String DELETE_USER_BY_ID = "DELETE FROM employee WHERE id = ?;";
 	private static final String GET_AUTH_BY_ROLE = "SELECT name FROM credentials WHERE id = ?;";
+	private static final String SELECT_PASSWD_BY_LOGIN = "SELECT password FROM employee WHERE login = ?;";
 	
 	protected Connection getConnection() {
 		Connection connection = null;
@@ -307,6 +308,52 @@ public class UserDatabaseDaoImpl implements UserDao{
 			
 		}	
 		return result;
+	}
+
+	@Override
+	public boolean checkLoginPassword(String login, String password) {
+		//User user = new User();
+		System.out.println(" **** CheckLoginPassword mothod ****");
+		
+		boolean status = false;
+		String check_key = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = JDBCUtils.getConnection();
+			preparedStatement = connection.prepareStatement(SELECT_PASSWD_BY_LOGIN);
+			preparedStatement.setString(1, login);
+			//System.out.println(preparedStatement.toString());
+			rs = preparedStatement.executeQuery();
+			if(rs.next()){
+				check_key = rs.getString(1);
+			}
+			
+			if (check_key.equals(password)) {
+				status = true;
+			} else {
+				status = false;
+			}
+//			System.out.println(user.toString());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}	
+		
+		return status;
 	}
 
 }

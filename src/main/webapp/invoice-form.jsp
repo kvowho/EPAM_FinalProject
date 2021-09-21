@@ -19,11 +19,11 @@
 			<a class="btn btn-primary"
 				href="<%=request.getContextPath()%>/Controller?command=invoices"
 				class="btn btn-success" " role="button">${iBackToInvList}</a> 
-			<a class="btn btn-primary disabled" href="Controller?command=logout"
-				role="button" aria-disabled="false">${iLogout}</a> ${iYouAre}
+			<a class="btn btn-primary" href="Controller?command=logout"
+				role="button" >${iLogout}</a> ${iYouAre}
 			<c:out value="${sessionScope.user}" />
 			${iYourRole}
-			<c:out value="${sessionScope.role}" />
+			<c:out value="${sessionScope.role_name}" />
 		</div>
 		<div>
 			<form method="POST" action="Controller">
@@ -103,8 +103,13 @@
 						</td>
 						<td><c:out value="${invoiceLine.price}" /></td>
 						<td>
+						
+							<c:if test="${sessionScope.role != 3}"> ${iDelete}	</c:if>
+								<c:if test="${sessionScope.role == 3}"> 
+								<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=dell&inv_id=<c:out value='${invoice.id}'/>&prod_id=<c:out value='${invoiceLine.product.id}'/>">${iDelete}</a>
+								</c:if>
 
-							<a href="<%=request.getContextPath()%>/Controller?command=invoice&ex=dell&inv_id=<c:out value='${invoice.id}'/>&prod_id=<c:out value='${invoiceLine.product.id}'/>">${iDelete}</a></td>
+							</td>
 					</tr>
 				</c:forEach>
 				<!-- } -->

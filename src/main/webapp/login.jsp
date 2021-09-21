@@ -8,13 +8,6 @@
 </head>
 <body>
 
-    <div style="text-align: right;padding:5px;margin:5px 0px;background:#ccc;">
-       <a href="${pageContext.request.contextPath}/login1?lang=en">Login (English)</a>
-       &nbsp;|&nbsp;
-       <a href="${pageContext.request.contextPath}/login1?lang=fr">Login (French)</a>
-       &nbsp;|&nbsp;
-       <a href="${pageContext.request.contextPath}/login1?lang=vi">Login (Vietnamese)</a>
-    </div>
 
 <form name="LoginForm" method="POST" action="Controller">
 	<input type="hidden" name="command" value="Login" />

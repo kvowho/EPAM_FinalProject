@@ -11,7 +11,7 @@ import net.voznjuk.models.User;
 
 public class LoginCommand implements ActionCommand {
 	
-	final static Logger logger = Logger.getLogger(InvoiceCommand.class);
+	final static Logger logger = Logger.getLogger(LoginCommand.class);
 	
 	private static final String PARAM_NAME_LOGIN = "login";
 	private static final String PARAM_NAME_PASSWORD = "password";
@@ -34,6 +34,7 @@ public class LoginCommand implements ActionCommand {
 //		}
 		UserDao userDAO = new UserDatabaseDaoImpl();
 		User user = userDAO.getByLogin(login);
+		boolean pass_check = userDAO.checkLoginPassword(login, pass);
 		HttpSession session = request.getSession();
 		session.setAttribute("role", user.getRole());
 		session.setAttribute("user", login);
@@ -41,31 +42,36 @@ public class LoginCommand implements ActionCommand {
 		
 		if (logger.isDebugEnabled()) {
 			logger.debug("LoginStage user " + login + " successfully get in with " + userDAO.getAuthByRole(Long.parseLong(user.getRole())) + " privileges");
+			logger.debug("LoginStage USER password check " + pass_check);
 		}
 		
 		
 		
-		if (user.getRole().equals("1")) {
+		if (user.getRole().equals("1") && pass_check) {
 			//System.out.println("***** User name is Ivan ********");
 			request.setAttribute("user", login);
 			request.setAttribute("u_name", user.getLastname());
 			request.setAttribute("role", user.getRole());
 			page = "/Controller?command=users";
 		} 
-		if (user.getRole().equals("2")) {
+		if (user.getRole().equals("2") && pass_check ) {
 			//System.out.println("***** Storekeeper ********");
 			request.setAttribute("user", login);
 			request.setAttribute("u_name", user.getLastname());
 			request.setAttribute("role", user.getRole());
 			page = "/Controller?command=products";
 		} 
-		if (user.getRole().equals("3")) {
+		if (user.getRole().equals("3") || user.getRole().equals("4") && pass_check) {
 			//System.out.println("***** Cashier or Senior cashier ********");
 			request.setAttribute("user", login);
 			request.setAttribute("u_name", user.getLastname());
 			request.setAttribute("role", user.getRole());
 			page = "/Controller?command=invoices";
 		} 
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("LoginStage PAGE after selection " + page);
+		}
 		
 		return page;
 	}

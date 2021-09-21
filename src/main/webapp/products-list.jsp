@@ -73,7 +73,7 @@
 							<td><c:out value="${prod.description}" /></td>
 							<td><c:out value="${prod.stockQuantity}" /></td>
 							<td><c:out value="${prod.price}" /></td>
-							<td><c:out value="${prod.availabilityStatus}" /></td>
+							<td><c:out value="${prod.availabilityStatus == '1' ? 'Available' : ''} ${prod.availabilityStatus == '2' ? 'In transit' : ''} ${prod.availabilityStatus == '3' ? 'Not available' : ''}" /></td>
 							<td><a href="<%=request.getContextPath()%>/Controller?command=product&ex=disp&id=<c:out value='${prod.id}' />">${iEdit}</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="<%=request.getContextPath()%>/Controller?command=product&ex=del&id=<c:out value='${prod.id}' />">${iDelete}</a></td>
